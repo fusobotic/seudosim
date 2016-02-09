@@ -14,12 +14,11 @@ I have a few more sketches of characters who I will flesh out later (having diff
 
 # Main gameplay mechanic
 
-1. Player will start by placing a bet on the game in the form of coins, which will be money lost if match is lost.
-Money not lost will be given in last will and testament to _next generation_ (have some sort of funny counter for this in the info section or something)
+1. Player will start by placing a bet on the game in the form of coins, which will be money lost if match is lost. Money not lost will be given in last will and testament to _next generation_ (have some sort of funny counter for this in the info section or something).
 
-2. Next step is dragging bullet(s) bought into the chamber, how many put in will determine difficulty and pay out (though this might just be made into a different game mode)
+2. Next step is dragging bullet(s) bought into the chamber, how many put in will determine difficulty and pay out (though this might just be made into a different game mode).
 
- 3. Cylinder is placed/snapped back into weapon, and rotated. This rotation could either happen by tapping once (for a random value) or have acceleration relative to player swipe, which might be hard to figure out. During this rotation a click will be played after every chamber (every 60 degrees rotation). This will allow players to keep relative track of bullet locations but in a more challenging way than looking at the chambers. Since one of the main themes of the game is deception, bluffing etc, the hammer may be pulled back before, during or after cylinder rotation, since this cancels out the 60 degree rotation that normally happens during a dual action trigger pull.
+3. Cylinder is placed/snapped back into weapon, and rotated. This rotation could either happen by tapping once (for a random value) or have acceleration relative to player swipe, which might be hard to figure out. During this rotation a click will be played after every chamber (every 60 degrees rotation). This will allow players to keep relative track of bullet locations but in a more challenging way than looking at the chambers. Since one of the main themes of the game is deception, bluffing etc, the hammer may be pulled back before, during or after cylinder rotation, since this cancels out the 60 degree rotation that normally happens during a dual action trigger pull.
 
 4. The cylinder will stop, giving the player a brief moment to pull the hammer back before transitioning to an over-the-shoulder view of both participants in the game. It’s up to the player/AI as to which player pulls first, sort of like an old western standoff. After the first pull each alternates, the camera indicating which player is up. (Might add more time to the trigger pull depending on whether it’s in single/double action since double requires more pressure, which could add more nuance to body language between players)
 
@@ -46,7 +45,7 @@ Money not lost will be given in last will and testament to _next generation_ (ha
 # Items
 (bought at the store)
 
-Bullets
-Drinks
-Hats/glasses
-Good Luck charms
+- Bullets
+- Drinks
+- Hats/glasses
+- Good Luck charms
