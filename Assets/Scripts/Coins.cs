@@ -14,4 +14,10 @@ public class Coins : MonoBehaviour {
 		rb = GetComponent<Rigidbody> ();
 		startRot = transform.rotation;
 	}
+
+	void Update () {
+		if (rb.isKinematic){
+			iTween.RotateBy (gameObject, iTween.Hash ("z", spinSpeed, "x", -spinSpeed, "y", spinSpeed * .5, "delay", 0, "easeType", "Linear"));
+		}
+	}
 }
