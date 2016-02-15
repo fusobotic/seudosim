@@ -31,7 +31,6 @@ public class Spinable : MonoBehaviour {
 	}
 
 	void OnMouseUp(){
-		print (dragging);
 		dragging = false;
 		curRot = transform.rotation.eulerAngles.z;
 		if (curRot <= 30) {

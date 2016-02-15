@@ -5,6 +5,7 @@
 [Oo]bj/
 [Bb]uild
 [Ll]ibrary/
+[Bb]uild/
 sysinfo.txt
 *.stackdump
 
