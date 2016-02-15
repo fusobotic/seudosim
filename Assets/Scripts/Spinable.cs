@@ -4,7 +4,6 @@ using System.Collections;
 public class Spinable : MonoBehaviour {
 
 	public bool snapping = false;
-	//public float[] angles;
 
 	private float closest;
 	private float baseAngle = 0.0f;
