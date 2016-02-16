@@ -3,6 +3,9 @@ using System.Collections;
 
 public class Spinable : MonoBehaviour {
 
+	//script for snappable spinning, specifically for the revolver cylinder loading
+	//also useful for the main menu and shop?
+
 	public bool snapping = false;
 
 	private float closest;
