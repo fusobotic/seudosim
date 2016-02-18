@@ -7,8 +7,10 @@ public class Betting : MonoBehaviour {
 
 	private int coinCount;
 
+	private GameManager gm;
+
 	void Start () {
-	
+		gm = GameObject.Find ("GameManager").GetComponent<GameManager> ();
 	}
 
 	void Update () {
@@ -19,6 +21,8 @@ public class Betting : MonoBehaviour {
 		} else {
 			iTween.MoveUpdate (gameObject, iTween.Hash ("x", 6.46f, "y", 6.12f, "easeType", "easeInOutExpo", "time", 1f));
 		}
+
+		//change counter in top left corner of UI accordin to coinCount
 	}
 
 	void OnTriggerEnter(Collider other){
@@ -33,4 +37,9 @@ public class Betting : MonoBehaviour {
 		}
 	}
 
+	void SendBet(){
+		//send amount to GameManager
+		//call this function through buttonclick
+		gm.currentBet = coinCount;
+	}
 }
