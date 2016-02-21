@@ -56,6 +56,7 @@ public class CartridgeDrag : MonoBehaviour {
 		if (other.tag == "Snap") {
 			currentSnap = other.gameObject.transform;
 			willSnap = true;
+
 		}
 	}
 
