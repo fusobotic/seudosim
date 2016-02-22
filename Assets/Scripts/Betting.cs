@@ -5,7 +5,7 @@ public class Betting : MonoBehaviour {
 
 	public bool allIn;
 
-	private int coinCount;
+	public int coinCount;
 
 	private GameManager gm;
 
@@ -17,7 +17,7 @@ public class Betting : MonoBehaviour {
 		//print (coinCount);
 
 		if (allIn) {
-			iTween.MoveUpdate (gameObject, iTween.Hash ("x", 0, "z", 0, "easeType", "easeInOutExpo", "time", 1f));
+			iTween.MoveUpdate (gameObject, iTween.Hash ("x", 0, "y", 0, "easeType", "easeInOutExpo", "time", 1f));
 		} else {
 			iTween.MoveUpdate (gameObject, iTween.Hash ("x", 6.46f, "y", 6.12f, "easeType", "easeInOutExpo", "time", 1f));
 		}
@@ -26,20 +26,14 @@ public class Betting : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider other){
-		if (other.tag == "Coin") {
+		if (other.tag == "Coin" && enabled) {
 			coinCount++;
 		}
 	}
 
 	void OnTriggerExit(Collider other){
-		if (other.tag == "Coin") {
+		if (other.tag == "Coin" && enabled) {
 			coinCount--;
 		}
-	}
-
-	void SendBet(){
-		//send amount to GameManager
-		//call this function through buttonclick
-		gm.currentBet = coinCount;
 	}
 }

@@ -18,6 +18,8 @@ public class Spinable : MonoBehaviour {
 	}
 
 	void OnMouseDown(){
+		if (!enabled)
+			return;
 		Vector3 dir = Camera.main.WorldToScreenPoint (transform.position);
 		dir = Input.mousePosition - dir;
 		baseAngle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
@@ -25,6 +27,8 @@ public class Spinable : MonoBehaviour {
 	}
 
 	void OnMouseDrag(){
+		if (!enabled)
+			return;
 		dragging = true;	
 		Vector3 dir = Camera.main.WorldToScreenPoint (transform.position);
 		dir = Input.mousePosition - dir;
@@ -33,6 +37,8 @@ public class Spinable : MonoBehaviour {
 	}
 
 	void OnMouseUp(){
+		if (!enabled)
+			return;
 		dragging = false;
 		curRot = transform.rotation.eulerAngles.z;
 		if (curRot <= 30) {
@@ -54,10 +60,7 @@ public class Spinable : MonoBehaviour {
 	}
 
 	void Update(){
-		
-		if (!dragging && snapping) {
-			
-			//transform.eulerAngles.z = Mathf.Lerp(transform.eulerAngles.z, closest);
-		}
+		if (!enabled)
+			return;
 	}
 }

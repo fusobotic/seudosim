@@ -27,14 +27,14 @@ public class CylinderRevolve : MonoBehaviour {
 	}
 
 	void OnMouseDown(){
-		if (!rotated)
+		if (!rotated && enabled)
 			StartCoroutine (Spin());
 	}
 
 	IEnumerator Spin(){
 		rotated = true;
 		rotating = true;
-		iTween.RotateAdd (gameObject, iTween.Hash("y", revolveNum(), "time", spinTime, "easeType", easeType));
+		iTween.RotateAdd (gameObject, iTween.Hash("z", revolveNum(), "time", spinTime, "easeType", easeType));
 		yield return new WaitForSeconds(spinTime + 1f);
 		rotating = false;
 		//hammer.GetComponent<Collider>().enabled = false; //disables hammer being toggled anymore
