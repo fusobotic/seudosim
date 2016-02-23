@@ -65,7 +65,7 @@ public class GameManager : MonoBehaviour {
 		//default: //use this if you need a state for when the game first starts
 		}
 				
-		if (Input.GetButtonDown ("Fire1")) Bet ();
+		//if (Input.GetButtonDown ("Fire1")) Bet ();
 		
 	}
 
@@ -89,13 +89,14 @@ public class GameManager : MonoBehaviour {
 	void Load(){
 		GameObject.Find ("Cylinder").GetComponent<Spinable> ().enabled = false;
 
-		//move the catridges away then destroy them
-		iTween.MoveTo (GameObject.Find ("Cartridges"), iTween.Hash("x", -100f, "time", 10f, "easeType", "easeOutExpo"));
-		Destroy (GameObject.Find ("Cartridges"), 2f);
+		//destroy catridges
+		Destroy (GameObject.Find ("StateLoad"));
+		//maybe polish this up later
 		//rotate the Camera Rig to face the revolver side view
 		//iTween.FadeTo(GameObject.Find("Revolver"), 255, 2f); //fades in revolver
 		Destroy(GameObject.Find("Confirm"), .15f);
 		iTween.MoveAdd(GameObject.Find("Confirm"), iTween.Hash("x", 200, "time", .15));
+		iTween.RotateTo(GameObject.Find ("CameraPanner"), iTween.Hash ("y", 90, "time", .15));
 
 		//count how many catridges were put in
 		GameObject[] slots;
@@ -105,7 +106,7 @@ public class GameManager : MonoBehaviour {
 			//maybe feed this into the NPC for correlating shell count?
 		}
 
-		GameObject.Find ("Cylinder").GetComponent<CylinderRevolve> ().enabled = true;
+		GameObject.Find ("Cylinder").GetComponent<CylinderRevolve>().enabled = true;
 
 		//might need to destroy some other objects with the loading process, like a spawner or something
 
@@ -126,7 +127,8 @@ public class GameManager : MonoBehaviour {
 			mat.GetComponent<Betting>().enabled = false;
 			mat.GetComponent<BoxCollider> ().enabled = false;
 		}
-			
+
+
 
 		Destroy (GameObject.Find ("StateBet")); //make a more sophsitocated transition later, but for now the testing phase needs to be quick
 
