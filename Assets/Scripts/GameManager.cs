@@ -92,6 +92,7 @@ public class GameManager : MonoBehaviour {
 		//destroy catridges
 		Destroy (GameObject.Find ("StateLoad"));
 		//maybe polish this up later
+
 		//rotate the Camera Rig to face the revolver side view
 		//iTween.FadeTo(GameObject.Find("Revolver"), 255, 2f); //fades in revolver
 		Destroy(GameObject.Find("Confirm"), .15f);
@@ -107,6 +108,8 @@ public class GameManager : MonoBehaviour {
 		}
 
 		GameObject.Find ("Cylinder").GetComponent<CylinderRevolve>().enabled = true;
+
+		//fade in the Revolver object
 
 		//might need to destroy some other objects with the loading process, like a spawner or something
 
