@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour {
 
 	public static GameManager Instance;
 
+	private GameObject revolver;
+
 	void Awake(){
 		if (Instance)
 			DestroyImmediate (gameObject);
@@ -27,7 +29,7 @@ public class GameManager : MonoBehaviour {
 		//maybe also assign variables for pickups, stats etc
 		if (GameObject.Find ("Revolver") != null) {
 			iTween.FadeTo (GameObject.Find ("Revolver"), 0, 0);
-			//makes the revolver clear until 
+			//makes the revolver clear until
 		}
 	}
 
@@ -35,6 +37,8 @@ public class GameManager : MonoBehaviour {
 		cartridgeCount = 0;
 		curState = "bet"; 		//make sure to change this once the main menu is integrated
 		//maybe get other scripts that need to be modified here
+		revolver = GameObject.Find("Revolver");
+		revolver.SetActive(false);
 	}
 
 	void Update () {
@@ -64,9 +68,9 @@ public class GameManager : MonoBehaviour {
 			break;
 		//default: //use this if you need a state for when the game first starts
 		}
-				
+
 		//if (Input.GetButtonDown ("Fire1")) Bet ();
-		
+
 	}
 
 	void lose() {
@@ -108,6 +112,7 @@ public class GameManager : MonoBehaviour {
 		}
 
 		GameObject.Find ("Cylinder").GetComponent<CylinderRevolve>().enabled = true;
+		revolver.SetActive(true);
 
 		//fade in the Revolver object
 
@@ -117,7 +122,7 @@ public class GameManager : MonoBehaviour {
 	}
 
 	void Bet(){
-		
+
 		GameObject mat = GameObject.Find ("DragMat");
 
 		if (mat.GetComponent<Betting> ().allIn) {
