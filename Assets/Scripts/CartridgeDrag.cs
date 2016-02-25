@@ -22,8 +22,7 @@ public class CartridgeDrag : MonoBehaviour {
 	}
 
 	void Update () {
-		//modify this later to be a better animation for bullets (showcasing the tip)
-		//iTween.RotateBy (gameObject, iTween.Hash ("z", spinSpeed, "x", -spinSpeed, "y", spinSpeed * .5, "delay", 0, "easeType", "Linear"));
+		
 	}
 
 	void OnMouseDrag(){

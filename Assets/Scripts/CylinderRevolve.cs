@@ -5,6 +5,8 @@ public class CylinderRevolve : MonoBehaviour {
 
 	//script for spinning cylinder before round officially begins
 	//also has functionality for detecting hammer back
+	//firing, also camera mod for first fire
+	//try to put camera movement in the Game Manager at some point
 
 	public float spinTime;
 	public string easeType;
@@ -45,7 +47,11 @@ public class CylinderRevolve : MonoBehaviour {
 		}
 
 		GameObject.Find("Trigger").GetComponent<Collider>().enabled = true;
+		iTween.MoveTo(GameObject.Find ("CameraPanner"), iTween.Hash ("z", 5, "time", .5f));
+		Camera.main.orthographicSize = 15;
 		gm.curState = "shoot0";
+
+
 
 		//checks if the hammer is back or not
 
@@ -68,13 +74,15 @@ public class CylinderRevolve : MonoBehaviour {
 			//iTween.RotateAdd (gameObject, iTween.Hash("z", 60, "time", .5, "easeType", easeType));
 			iTween.RotateTo(hammer, iTween.Hash("x", 0, "easeType", "easeInExpo", "time", .01));
 
-		}else{
-
 		}
 		GameObject[] cartridges = GameObject.FindGameObjectsWithTag("Cartridge");
 		foreach (GameObject cartridge in cartridges ){
 			CartridgeDrag script = cartridge.GetComponent<CartridgeDrag>();
 			StartCoroutine(script.Fired());
 		}
+
+		//maybe make the entire screen a button for this?
+
+		gm.curState = "shoot2";
 	}
 }
