@@ -16,13 +16,13 @@ public class CylinderSnaps : MonoBehaviour {
 	}
 
 	void OnTriggerStay(Collider other){
-		if (other.tag == "Catridge" && !Input.GetMouseButton(0)) {
+		if (other.tag == "Cartridge" && !Input.GetMouseButton(0)) {
 			coll.height = overlapHeight;
 		}
 	}
 
 	void OnTriggerExit(Collider other){
-		if (other.tag == "Catridge" && !Input.GetMouseButton(1)) {
+		if (other.tag == "Cartridge" && !Input.GetMouseButton(1)) {
 			coll.height = initHeight;
 		}
 	}

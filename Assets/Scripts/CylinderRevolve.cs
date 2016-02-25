@@ -35,7 +35,7 @@ public class CylinderRevolve : MonoBehaviour {
 		rotated = true;
 		rotating = true;
 		iTween.RotateAdd (gameObject, iTween.Hash("z", revolveNum(), "time", spinTime, "easeType", easeType));
-		yield return new WaitForSeconds(spinTime + 1f);
+		yield return new WaitForSeconds(spinTime + .25f);
 		rotating = false;
 		hammer.GetComponent<Collider>().enabled = false; //disables hammer being toggled anymore
 		if (hammer.transform.eulerAngles.x > 2) {
@@ -67,9 +67,14 @@ public class CylinderRevolve : MonoBehaviour {
 			hammerBack = false;
 			//iTween.RotateAdd (gameObject, iTween.Hash("z", 60, "time", .5, "easeType", easeType));
 			iTween.RotateTo(hammer, iTween.Hash("x", 0, "easeType", "easeInExpo", "time", .01));
-		} else{
+
+		}else{
 
 		}
-		print("fired!");
+		GameObject[] cartridges = GameObject.FindGameObjectsWithTag("Cartridge");
+		foreach (GameObject cartridge in cartridges ){
+			CartridgeDrag script = cartridge.GetComponent<CartridgeDrag>();
+			StartCoroutine(script.Fired());
+		}
 	}
 }

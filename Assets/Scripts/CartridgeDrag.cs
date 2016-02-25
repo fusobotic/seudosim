@@ -12,6 +12,7 @@ public class CartridgeDrag : MonoBehaviour {
 	private bool willSnap;
 	private Vector3 startPos;
 	private Vector3 startRot;
+	private bool chambered = false;
 
 	// Use this for initialization
 	void Start () {
@@ -58,11 +59,24 @@ public class CartridgeDrag : MonoBehaviour {
 			willSnap = true;
 
 		}
+		if (other.name == "BulletTrigger"){
+			chambered = true;
+		}
 	}
 
 	void OnTriggerExit(Collider other){
 		if (other.tag == "Snap") {
 			willSnap = false;
+		}
+		if (other.name == "BulletTrigger"){
+			chambered = false;
+		}
+	}
+
+	public IEnumerator Fired(){
+		if (chambered){
+			yield return new WaitForSeconds (.01f);
+			Application.LoadLevel(1);
 		}
 	}
 }
