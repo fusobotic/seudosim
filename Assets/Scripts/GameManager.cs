@@ -73,17 +73,19 @@ public class GameManager : MonoBehaviour {
 
 	}
 
-	void lose() {
+	public void Lose() {
 		currentCoins -= currentBet;
 		roundLosses++;
 		//turn screen black and then load menu scene
 	}
 
-	void win(){
+	public void Win(){
 		curState = "won";
 		currentCoins += (currentBet * 2);
 		currentBet = 0;
+		print("yeah you won!");
 		//spawn winning animation prefab or something
+		//Application.LoadLevel(3); //Load the winstate screen/main menu
 	}
 
 	void OnApplicationQuit(){
