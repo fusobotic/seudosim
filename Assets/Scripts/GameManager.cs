@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour {
 	public static GameManager Instance;
 
 	private GameObject revolver;
+	private GameObject camPanner;
 
 	void Awake(){
 		if (Instance)
@@ -39,6 +40,7 @@ public class GameManager : MonoBehaviour {
 		//maybe get other scripts that need to be modified here
 		revolver = GameObject.Find("Revolver");
 		revolver.SetActive(false);
+		camPanner = GameObject.Find("CameraPanner");
 	}
 
 	void Update () {
@@ -58,12 +60,17 @@ public class GameManager : MonoBehaviour {
 			//state for either player shooting
 			break;
 		case "shoot1":
+			iTween.MoveUpdate(camPanner, new Vector3 (0f,-3.1f,-0.4f), 1);
 			//player has to shoot
 			break;
 		case "shoot2":
+			iTween.MoveUpdate(camPanner, new Vector3 (0f,-3.1f,21.2f), 1);
 			//oppenent has to shoot, restrict player controls
 			break;
 		case "won":
+			Destroy(GameObject.Find("Trigger")); 
+			//!!make sure to make the trigger object only a collider, not a mesh
+			iTween.MoveUpdate(camPanner, new Vector3 (0f,-3.1f,-0.4f), 1);
 			//display congrats screen with spawned coin effect or somethin
 			break;
 		//default: //use this if you need a state for when the game first starts
@@ -103,6 +110,7 @@ public class GameManager : MonoBehaviour {
 		//iTween.FadeTo(GameObject.Find("Revolver"), 255, 2f); //fades in revolver
 		Destroy(GameObject.Find("Confirm"), .15f);
 		iTween.MoveAdd(GameObject.Find("Confirm"), iTween.Hash("x", 200, "time", .15));
+		Camera.main.orthographic = false;
 		iTween.RotateTo(GameObject.Find ("CameraPanner"), iTween.Hash ("y", 90, "time", .15));
 
 		//count how many catridges were put in
