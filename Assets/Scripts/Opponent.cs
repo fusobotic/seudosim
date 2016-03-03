@@ -61,13 +61,14 @@ public class Opponent : MonoBehaviour {
 	void PullTrigger(){
 		print(cylinderIndex + " " + cartridge);
 		if(cartridge == cylinderIndex){
-			//Instantiate(blood, transform.position, Quaternion.identity);
+			//spawn an explosion as well
+			Instantiate(blood, new Vector3 (45f,3.4f,7.6f), Quaternion.Euler(0,90,0));
 			gm.curState = "shoot1"; //do this so that the camera pans before winning
 			gm.Win();
 		}
 		else{
 			gm.curState = "shoot1";
-			//Instantiate(click, transform.position, Quaternion.identity);
+			Instantiate(click, new Vector3 (38f,3.3f,38f), Quaternion.Euler(18,95,12));
 			cylinderIndex++;
 		}
 		deciding = false;

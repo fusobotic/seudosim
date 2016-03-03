@@ -60,17 +60,17 @@ public class GameManager : MonoBehaviour {
 			//state for either player shooting
 			break;
 		case "shoot1":
-			iTween.MoveUpdate(camPanner, new Vector3 (0f,-3.1f,-0.4f), 1);
+			iTween.MoveUpdate(camPanner, new Vector3 (0f,-3.1f,-0.4f), 1.5f);
 			//player has to shoot
 			break;
 		case "shoot2":
-			iTween.MoveUpdate(camPanner, new Vector3 (0f,-3.1f,21.2f), 1);
+			iTween.MoveUpdate(camPanner, new Vector3 (0f,-3.1f,21.2f), 1.5f);
 			//oppenent has to shoot, restrict player controls
 			break;
 		case "won":
-			Destroy(GameObject.Find("Trigger")); 
+			Destroy(GameObject.Find("Trigger"));
 			//!!make sure to make the trigger object only a collider, not a mesh
-			iTween.MoveUpdate(camPanner, new Vector3 (0f,-3.1f,-0.4f), 1);
+			iTween.MoveUpdate(camPanner, new Vector3 (0f,-3.1f,-0.4f), 1.5f);
 			//display congrats screen with spawned coin effect or somethin
 			break;
 		//default: //use this if you need a state for when the game first starts
@@ -112,6 +112,7 @@ public class GameManager : MonoBehaviour {
 		iTween.MoveAdd(GameObject.Find("Confirm"), iTween.Hash("x", 200, "time", .15));
 		Camera.main.orthographic = false;
 		iTween.RotateTo(GameObject.Find ("CameraPanner"), iTween.Hash ("y", 90, "time", .15));
+		iTween.MoveTo(GameObject.Find ("CameraPanner"), iTween.Hash ("y", 1.5, "time", .15));
 
 		//count how many catridges were put in
 		GameObject[] slots;
