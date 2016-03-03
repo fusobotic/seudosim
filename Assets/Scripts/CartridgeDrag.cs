@@ -17,7 +17,7 @@ public class CartridgeDrag : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		rb = GetComponent<Rigidbody> ();
-		startPos = transform.position;
+		startPos = transform.localPosition;
 		startRot = transform.eulerAngles;
 	}
 

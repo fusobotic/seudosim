@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
 
@@ -36,11 +37,15 @@ public class GameManager : MonoBehaviour {
 
 	void Start () {
 		cartridgeCount = 0;
-		curState = "bet"; 		//make sure to change this once the main menu is integrated
+		//make sure to change this once the main menu is integrated
 		//maybe get other scripts that need to be modified here
-		revolver = GameObject.Find("Revolver");
-		revolver.SetActive(false);
-		camPanner = GameObject.Find("CameraPanner");
+		if(SceneManager.GetActiveScene().name == "MainMechanic"){
+			curState = "bet"; 
+			revolver = GameObject.Find("Revolver");
+			revolver.SetActive(false);
+			camPanner = GameObject.Find("CameraPanner");
+		}
+		
 	}
 
 	void Update () {
