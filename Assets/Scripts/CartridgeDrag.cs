@@ -46,7 +46,7 @@ public class CartridgeDrag : MonoBehaviour {
 			iTween.RotateTo ( gameObject, currentSnap.transform.eulerAngles, 0);
 			iTween.RotateTo (gameObject, new Vector3 (90, 0, 0), 0);
 		} else if (!willSnap) {
-			transform.parent = null;
+			transform.parent = GameObject.Find("Cartridges").transform;
 			iTween.MoveTo ( gameObject, startPos, .5f);
 			iTween.RotateTo ( gameObject, startRot, .5f);
 		}

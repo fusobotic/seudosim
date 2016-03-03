@@ -39,6 +39,11 @@ public class Opponent : MonoBehaviour {
 			deciding = true;
 			StartCoroutine(DelayShot(true));
 		}
+
+		if (gm.curState == "shoot1"){
+			StopCoroutine(DelayShot(true));
+			deciding = false;
+		}
 	}
 
 	void FillCatriges(){
@@ -68,15 +73,17 @@ public class Opponent : MonoBehaviour {
 		deciding = false;
 	}
 
-	IEnumerator DelayShot(bool notFirst){
+	public IEnumerator DelayShot(bool notFirst){
+
 		if (Random.value >= .5 && !notFirst){ //half chance of just waiting forever
+
 			yield return new WaitForSeconds(Random.Range(1f,maxWaitTime));
 			if (gm.curState == "shoot0"){
 				PullTrigger();
 			}
 		}
 		else if (notFirst){
-			yield return new WaitForSeconds(Random.Range(1f,maxWaitTime));
+			yield return new WaitForSeconds(Random.Range(.5f, 2f));
 			PullTrigger();
 		}
 	}

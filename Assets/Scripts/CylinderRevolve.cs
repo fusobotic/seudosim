@@ -69,6 +69,7 @@ public class CylinderRevolve : MonoBehaviour {
 	}
 
 	public void Fire(){
+		gm.curState = "shoot2";
 		if(hammerBack){
 			hammerBack = false;
 			//iTween.RotateAdd (gameObject, iTween.Hash("z", 60, "time", .5, "easeType", easeType));
@@ -83,6 +84,6 @@ public class CylinderRevolve : MonoBehaviour {
 
 		//maybe make the entire screen a button for this?
 
-		gm.curState = "shoot2";
+		
 	}
 }

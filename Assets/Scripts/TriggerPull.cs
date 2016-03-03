@@ -21,13 +21,16 @@ public class TriggerPull : MonoBehaviour {
 		/*if (gm.curState == "shoot2")
 			return;
 			//simple way of waiting for AI to shoot back*/
+		
 		if(!cylinderRevolve.hammerBack){
+			gm.curState = "shoot1";
 			iTween.RotateTo(hammer, iTween.Hash("x", -90, "easeType", "easeOutExpo", "time", .05));
 			iTween.RotateAdd (cylinder, iTween.Hash("z", 60, "time", .1, "easeType", cylinderRevolve.easeType));
 			//player sound for pull back and revolveNum (or not if the revolve sound happens automatically)
 			halfPulled = true;
-			gm.curState = "shoot1";
-		} else {
+		} else if (cylinderRevolve.hammerBack) {
+			StopCoroutine(GameObject.Find("Opponent").GetComponent<Opponent>().DelayShot(true));
+			GameObject.Find("Opponent").GetComponent<Opponent>().deciding = false;
 			cylinderRevolve.Fire();
 		}
 	}
@@ -40,5 +43,6 @@ public class TriggerPull : MonoBehaviour {
 			iTween.RotateTo(hammer, iTween.Hash("x", 0, "easeType", "easeInExpo", "time", .01));
 			cylinderRevolve.Fire();
 		}
+
 	}
 }
