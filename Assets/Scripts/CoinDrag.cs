@@ -7,12 +7,14 @@ public class CoinDrag : MonoBehaviour {
 	public float distance = 10f;
 
 	private Rigidbody rb;
+	private Collider col;
 	private Quaternion startRot;
 	private bool rotating = false;
 
 	// Use this for initialization
 	void Start () {
-		rb = GetComponent<Rigidbody> ();
+		rb = GetComponent<Rigidbody>();
+		col = GetComponent<Collider>();
 		startRot = transform.rotation;
 	}
 
@@ -27,16 +29,19 @@ public class CoinDrag : MonoBehaviour {
 		Vector3 objPosition = Camera.main.ScreenToWorldPoint (mousePosition);
 
 		//transform.position = objPosition;
-		iTween.MoveUpdate( gameObject, objPosition, .3f);
+
+		iTween.MoveUpdate( gameObject, objPosition, .5f);
+
+		//rb.MovePosition(objPosition);
 	}
 
 	void OnMouseDown(){
-		Rigidbody rb = GetComponent<Rigidbody> ();
+		//col.enabled = false;
 		if (rb.useGravity) rb.isKinematic = true;
 	}
 
 	void OnMouseUp(){
-		Rigidbody rb = GetComponent<Rigidbody> ();
+		//col.enabled = true;
 		if (rb.useGravity) rb.isKinematic = false;
 	}
 }

@@ -11,14 +11,17 @@ public class GameManager : MonoBehaviour {
 	public int cartridgeCount;
 
 	public string curState;
-	public Transform[] camPositions; //might end up just using a rotational system for this
-
-	public int turnIndex = 0; //0 is either, 1 is player, 2 is opponent
 
 	public static GameManager Instance;
 
 	private GameObject revolver;
 	private GameObject camPanner;
+	private GameObject cartridges;
+	private GameObject cylinder;
+	private GameObject cartConfirm;
+
+	private Vector3 cartridgesLoc;
+	private Vector3 cylinderLoc;
 
 	void Awake(){
 		if (Instance)
@@ -40,12 +43,23 @@ public class GameManager : MonoBehaviour {
 		//make sure to change this once the main menu is integrated
 		//maybe get other scripts that need to be modified here
 		if(SceneManager.GetActiveScene().name == "MainMechanic"){
-			curState = "bet"; 
+			curState = "bet";
 			revolver = GameObject.Find("Revolver");
-			revolver.SetActive(false);
 			camPanner = GameObject.Find("CameraPanner");
+			cartridges = GameObject.Find("Cartridges");
+			cylinder = GameObject.Find("Cylinder");
+			cartConfirm = GameObject.Find("Confirm");
+
+			cartConfirm.SetActive(false);
+			revolver.SetActive(false);
+
+			cartridgesLoc = cartridges.transform.position;
+			cylinderLoc = cylinder.transform.position;
+
+			cartridges.transform.localPosition = new Vector3(-5.85f, .44f, 0);
+			cylinder.transform.localPosition = new Vector3(10.8f, 2.2174f, -2.0914f);
 		}
-		
+
 	}
 
 	void Update () {
@@ -57,6 +71,13 @@ public class GameManager : MonoBehaviour {
 			//load up the round with appropriate variable sets according to rules
 			break;
 		case "load":
+			if (cartConfirm.activeSelf == false){
+					cartConfirm.SetActive(true);
+			}
+			//iTween.MoveUpdate(cylinder, new Vector3(2.02f, 2.2174f, -2.0914f), 1f); //not working for some reason :/
+			cylinder.transform.localPosition = cylinderLoc;
+			iTween.MoveUpdate(cartridges, cartridgesLoc, 1f);
+
 			//run any updates that need to be there for loading cartridges
 			break;
 		case "spin":
@@ -86,8 +107,10 @@ public class GameManager : MonoBehaviour {
 	}
 
 	public void Lose() {
+		curState = "lose";
 		currentCoins -= currentBet;
 		roundLosses++;
+		SceneManager.LoadScene("Death");
 		//turn screen black and then load menu scene
 	}
 
@@ -137,7 +160,7 @@ public class GameManager : MonoBehaviour {
 		curState = "spin";
 	}
 
-	void Bet(){
+	public IEnumerator Bet(){
 
 		GameObject mat = GameObject.Find ("DragMat");
 
@@ -155,9 +178,22 @@ public class GameManager : MonoBehaviour {
 
 
 		Destroy (GameObject.Find ("StateBet")); //make a more sophsitocated transition later, but for now the testing phase needs to be quick
+		Destroy(GameObject.Find("BetButton"));
+
+		GameObject.Find ("DragMat").GetComponent<Collider>().enabled = false;
+
+		Physics.gravity = new Vector3(0, -18, 0);
+		//also move other UI off screen here
+		yield return new WaitForSeconds (1.5f); //wait for coins to drop
+
+		foreach ( GameObject coinClone in GameObject.FindGameObjectsWithTag("Coin")){
+			Destroy(coinClone);
+		}
 
 		iTween.MoveTo (GameObject.Find("StateLoad"), new Vector3 (0, 0, 0), 1); //Moves the loading step into the scene
 
 		curState = "load";
+
+
 	}
 }

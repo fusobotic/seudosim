@@ -22,7 +22,7 @@ public class CartridgeDrag : MonoBehaviour {
 	}
 
 	void Update () {
-		
+
 	}
 
 	void OnMouseDrag(){
@@ -74,8 +74,8 @@ public class CartridgeDrag : MonoBehaviour {
 
 	public IEnumerator Fired(){
 		if (chambered){
-			yield return new WaitForSeconds (.01f);
-			Application.LoadLevel(1);
+			yield return new WaitForSeconds (.01f); //just wait for the animation or anything else
+			GameObject.Find("GameManager").GetComponent<GameManager>().Lose(); //calls lose function on GameManger
 		}
 	}
 }
