@@ -23,7 +23,7 @@ public class CylinderRevolve : MonoBehaviour {
 
 	private GameManager gm;
 
-	void Start(){
+	void Awake(){
 		gm = GameObject.Find ("GameManager").GetComponent<GameManager> ();
 		hammer = GameObject.Find ("Hammer");
 	}

@@ -127,7 +127,7 @@ public class GameManager : MonoBehaviour {
 		//store current values in PlayerPrefs
 	}
 
-	void Load(){
+	public void Load(){
 		GameObject.Find ("Cylinder").GetComponent<Spinable> ().enabled = false;
 
 		//destroy catridges
