@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour {
 	private GameObject cartridges;
 	private GameObject cylinder;
 	private GameObject cartConfirm;
+	private GameObject playAgain;
 
 	private Vector3 cartridgesLoc;
 	private Vector3 cylinderLoc;
@@ -32,37 +33,42 @@ public class GameManager : MonoBehaviour {
 		}
 		//get playerprefs coin amount here
 		//maybe also assign variables for pickups, stats etc
-		if (GameObject.Find ("Revolver") != null) {
-			iTween.FadeTo (GameObject.Find ("Revolver"), 0, 0);
-			//makes the revolver clear until
-		}
 	}
 
 	void Start () {
+		RoundStart();
+	}
+
+	void RoundStart(){
 		cartridgeCount = 0;
-		//make sure to change this once the main menu is integrated
-		//maybe get other scripts that need to be modified here
-		if(SceneManager.GetActiveScene().name == "MainMechanic"){
-			curState = "bet";
-			revolver = GameObject.Find("Revolver");
-			camPanner = GameObject.Find("CameraPanner");
-			cartridges = GameObject.Find("Cartridges");
-			cylinder = GameObject.Find("Cylinder");
-			cartConfirm = GameObject.Find("Confirm");
+		Physics.gravity = new Vector3(0, 0, 9.81f);
+		curState = "bet";
+		revolver = GameObject.Find("Revolver");
+		camPanner = GameObject.Find("CameraPanner");
+		cartridges = GameObject.Find("Cartridges");
+		cylinder = GameObject.Find("Cylinder");
+		cartConfirm = GameObject.Find("Confirm");
+		playAgain = GameObject.Find("PlayAgain");
 
-			cartConfirm.SetActive(false);
-			revolver.SetActive(false);
+		playAgain.SetActive(false);
+		cartConfirm.SetActive(false);
+		revolver.SetActive(false);
 
-			cartridgesLoc = cartridges.transform.position;
-			cylinderLoc = cylinder.transform.position;
+		cartridgesLoc = cartridges.transform.position;
+		cylinderLoc = cylinder.transform.position;
 
-			cartridges.transform.localPosition = new Vector3(-5.85f, .44f, 0);
-			cylinder.transform.localPosition = new Vector3(10.8f, 2.2174f, -2.0914f);
+		cartridges.transform.localPosition = new Vector3(-5.85f, .44f, 0);
+		cylinder.transform.localPosition = new Vector3(10.8f, 2.2174f, -2.0914f);
+	}
+
+	void OnLevelWasLoaded(int level){
+		if(level == 1){
+			RoundStart();
 		}
-
 	}
 
 	void Update () {
+		//print(currentCoins);
 		switch (curState) {
 		case "menu":
 			//update checks for main menu
@@ -101,7 +107,7 @@ public class GameManager : MonoBehaviour {
 			break;
 		//default: //use this if you need a state for when the game first starts
 		}
-
+		
 		//if (Input.GetButtonDown ("Fire1")) Bet ();
 
 	}
@@ -118,13 +124,65 @@ public class GameManager : MonoBehaviour {
 		curState = "won";
 		currentCoins += (currentBet * 2);
 		currentBet = 0;
-		print("yeah you won!");
+		print(currentCoins);
+		playAgain.SetActive(true);
+		//print("yeah you won!");
 		//spawn winning animation prefab or something
 		//Application.LoadLevel(3); //Load the winstate screen/main menu
 	}
 
+	public void MenuPlay(){
+		SceneManager.LoadScene("MainMechanic");
+	}
+
+	public void MenuQuit(){
+		Application.Quit();
+	}
+
 	void OnApplicationQuit(){
 		//store current values in PlayerPrefs
+	}
+
+	public IEnumerator Bet(){
+
+		GameObject mat = GameObject.Find ("DragMat");
+
+		if (mat.GetComponent<Betting> ().allIn) {
+			mat.GetComponent<Betting>().enabled = false;
+			mat.GetComponent<BoxCollider> ().enabled = false;
+			iTween.MoveTo (mat, iTween.Hash ("x", 6.46f, "y", 6.12f, "easeType", "easeInOutExpo", "time", .5));
+			currentCoins = currentBet;
+		} else {
+			currentBet = mat.GetComponent<Betting> ().coinCount;
+			mat.GetComponent<Betting>().enabled = false;
+			mat.GetComponent<BoxCollider> ().enabled = false;
+		}
+		
+
+
+		Destroy (GameObject.Find ("StateBet")); //make a more sophsitocated transition later, but for now the testing phase needs to be quick
+		Destroy(GameObject.Find("BetButton"));
+		Destroy(GameObject.Find("AllIn"));
+
+		GameObject.Find ("DragMat").GetComponent<Collider>().enabled = false;
+
+		Physics.gravity = new Vector3(0, -18, 0);
+		print(Time.timeScale);
+		//also move other UI off screen here
+		yield return new WaitForSeconds (1.5f); //wait for coins to drop
+		
+		GameObject[] coins = GameObject.FindGameObjectsWithTag("Coin");
+		for(int i = 0; i < coins.Length; i++){
+			Destroy(coins[i]);
+		}
+
+
+
+		iTween.MoveTo (GameObject.Find("StateLoad"), new Vector3 (0, 0, 0), 1); //Moves the loading step into the scene
+
+		curState = "load";
+		//yield return new WaitForSeconds (1.5f);
+
 	}
 
 	public void Load(){
@@ -160,40 +218,5 @@ public class GameManager : MonoBehaviour {
 		curState = "spin";
 	}
 
-	public IEnumerator Bet(){
-
-		GameObject mat = GameObject.Find ("DragMat");
-
-		if (mat.GetComponent<Betting> ().allIn) {
-			mat.GetComponent<Betting>().enabled = false;
-			mat.GetComponent<BoxCollider> ().enabled = false;
-			iTween.MoveTo (mat, iTween.Hash ("x", 6.46f, "y", 6.12f, "easeType", "easeInOutExpo", "time", .5));
-			currentCoins = currentBet;
-		} else {
-			currentBet = mat.GetComponent<Betting> ().coinCount;
-			mat.GetComponent<Betting>().enabled = false;
-			mat.GetComponent<BoxCollider> ().enabled = false;
-		}
-
-
-
-		Destroy (GameObject.Find ("StateBet")); //make a more sophsitocated transition later, but for now the testing phase needs to be quick
-		Destroy(GameObject.Find("BetButton"));
-
-		GameObject.Find ("DragMat").GetComponent<Collider>().enabled = false;
-
-		Physics.gravity = new Vector3(0, -18, 0);
-		//also move other UI off screen here
-		yield return new WaitForSeconds (1.5f); //wait for coins to drop
-
-		foreach ( GameObject coinClone in GameObject.FindGameObjectsWithTag("Coin")){
-			Destroy(coinClone);
-		}
-
-		iTween.MoveTo (GameObject.Find("StateLoad"), new Vector3 (0, 0, 0), 1); //Moves the loading step into the scene
-
-		curState = "load";
-
-
-	}
+	
 }

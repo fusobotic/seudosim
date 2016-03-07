@@ -9,9 +9,11 @@ public class ButtonOnClick : MonoBehaviour {
 	public void Clicked () {
 		GameManager gm = GameObject.Find("GameManager").GetComponent<GameManager>();
 		if(gameObject.name == "BetButton"){
-			StartCoroutine(gm.Bet());
+			gm.StartCoroutine(gm.Bet());
 		} else if (gameObject.name == "Confirm"){
 			gm.Load();
-		}		
+		}else if (gameObject.name == "PlayAgain"){
+			gm.MenuPlay();
+		} 
 	}
 }
