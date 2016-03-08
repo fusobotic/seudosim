@@ -17,12 +17,12 @@ public class CartridgeDrag : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		rb = GetComponent<Rigidbody> ();
-		startPos = transform.localPosition;
+		//startPos = transform.position;
 		startRot = transform.eulerAngles;
 	}
 
 	void Update () {
-
+		print(startPos);
 	}
 
 	void OnMouseDrag(){
@@ -35,8 +35,12 @@ public class CartridgeDrag : MonoBehaviour {
 	}
 
 	void OnMouseDown(){
-		if (transform.parent != null)
+		if (transform.parent.name == "Cartridges") {
+			startPos = transform.position;
+		}
+		if (transform.parent != null){
 			transform.parent = null;
+		}
 	}
 
 	void OnMouseUp(){
