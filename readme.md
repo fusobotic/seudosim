@@ -49,3 +49,9 @@ I have a few more sketches of characters who I will flesh out later (having diff
 - Drinks
 - Hats/glasses
 - Good Luck charms
+
+
+# To Build
+you need:
+- Unity
+- Blender (for converting fbx)
