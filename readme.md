@@ -29,6 +29,8 @@ I have a few more sketches of characters who I will flesh out later (having diff
 
 (might cull some of these depending on time, they’re just ideas at this point… will have to test to see if they’re worth including)
 
+- Stationary Cylinder: allows players to strategically place bullets
+
 - Classic Dual: Both players have a revolver, standoff then alternate. Survivor wins.
 
 - Classic Single: One revolver, player loads, starts with AI or player randomly. Revolver is passed back and forth
