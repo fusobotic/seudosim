@@ -218,5 +218,16 @@ public class GameManager : MonoBehaviour {
 		curState = "spin";
 	}
 
+
+	/*
+	//Section for SHOP FUNCTIONALITY
+	//Should have things related to coins n stuff
+	*/
+
+	public void BuyCoins(int a){
+		currentCoins += a;
+		//do some sort of animation on the coin icon maybe?
+	}
+
 	
 }
