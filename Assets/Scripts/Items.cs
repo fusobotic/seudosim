@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 
@@ -54,8 +54,6 @@ public class Items : MonoBehaviour {
 
 	public Item[] items;
 	public Ammo[] ammos;
-
-	//also make sure 
 
 	 
 
