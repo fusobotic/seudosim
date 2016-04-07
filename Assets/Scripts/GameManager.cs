@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
 
@@ -77,6 +78,18 @@ public class GameManager : MonoBehaviour {
 			//load up the round with appropriate variable sets according to rules
 			break;
 		case "load":
+			int cCount = 0;
+			foreach (GameObject cart in GameObject.FindGameObjectsWithTag("Cartridge")){
+				if (cart.transform.parent.tag == "Snap"){
+					cCount++;
+				}
+			}
+			cartridgeCount = cCount;
+			if (cartridgeCount == 0  && !Application.isEditor){ //disables button toggle for editor
+				cartConfirm.GetComponent<Button>().interactable = false;
+			} else {
+				cartConfirm.GetComponent<Button>().interactable = true;
+			}
 			if (cartConfirm.activeSelf == false){
 					cartConfirm.SetActive(true);
 			}

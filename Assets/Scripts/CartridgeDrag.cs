@@ -14,11 +14,15 @@ public class CartridgeDrag : MonoBehaviour {
 	private Vector3 startRot;
 	private bool chambered = false;
 
+	//private GameManager gm; //probably don't need this yet
+
 	// Use this for initialization
 	void Start () {
 		rb = GetComponent<Rigidbody> ();
 		//startPos = transform.position;
 		startRot = transform.eulerAngles;
+
+		//gm = GameObject.Find("GameManager").GetComponent<GameManager>();
 	}
 
 	void Update () {

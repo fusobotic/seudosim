@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class Betting : MonoBehaviour {
 
@@ -14,11 +15,12 @@ public class Betting : MonoBehaviour {
 	public float randSpread;
 
 	private GameManager gm;
+	private Button betButton;
 
 	void Start () {
 		gm = GameObject.Find ("GameManager").GetComponent<GameManager> ();
 		coinSpawnPoint = GameObject.Find("CoinSpawnPoint").transform;
-
+		betButton = GameObject.Find("BetButton").GetComponent<Button>();
 		StartCoroutine(SpawnCoins());
 	}
 
@@ -28,7 +30,11 @@ public class Betting : MonoBehaviour {
 		} else {
 			iTween.MoveUpdate (gameObject, iTween.Hash ("x", 6.46f, "y", 6.12f, "easeType", "easeInOutExpo", "time", 1f));
 		}
-
+		if(coinCount == 0 && !Application.isEditor){
+			betButton.interactable = false;
+		} else {
+			betButton.interactable = true;
+		}
 		//change counter in top left corner of UI accordin to coinCount
 	}
 

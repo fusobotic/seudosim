@@ -1,49 +1,25 @@
 fileFormatVersion: 2
-guid: 4f588eb45f2f0314c96e12e206059d5d
-timeCreated: 1458017062
+guid: b90b746c53399a0498713d22ac698174
+timeCreated: 1459992499
 licenseType: Pro
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: BezierCircle
-    100002: Empty
-    100004: Plane_000
-    100006: Plane_001
-    100008: Plane_002
-    100010: //RootNode
-    100012: Plane_001_MeshPart0
-    100014: Plane_001_MeshPart1
-    100016: Plane_003
-    400000: BezierCircle
-    400002: Empty
-    400004: Plane_000
-    400006: Plane_001
-    400008: Plane_002
-    400010: //RootNode
-    400012: Plane_001_MeshPart0
-    400014: Plane_001_MeshPart1
-    400016: Plane_003
-    2300000: BezierCircle
-    2300002: Plane_000
-    2300004: Plane_001
-    2300006: Plane_002
-    2300008: Plane_001_MeshPart0
-    2300010: Plane_001_MeshPart1
-    2300012: Plane_003
-    3300000: BezierCircle
-    3300002: Plane_000
-    3300004: Plane_001
-    3300006: Plane_002
-    3300008: Plane_001_MeshPart0
-    3300010: Plane_001_MeshPart1
-    3300012: Plane_003
-    4300000: Plane_002
-    4300002: BezierCircle
-    4300004: Plane_001
-    4300006: Plane_000
-    4300008: Plane_003
-    4300010: Plane_001_MeshPart0
-    4300012: Plane_001_MeshPart1
+    100000: //RootNode
+    100002: Cartridge_MeshPart0
+    100004: Cartridge_MeshPart1
+    400000: //RootNode
+    400002: Cartridge_MeshPart0
+    400004: Cartridge_MeshPart1
+    2300000: Cartridge_MeshPart0
+    2300002: Cartridge_MeshPart1
+    2300004: //RootNode
+    3300000: Cartridge_MeshPart0
+    3300002: Cartridge_MeshPart1
+    3300004: //RootNode
+    4300000: Cartridge_MeshPart0
+    4300002: Cartridge_MeshPart1
+    4300004: Cartridge
     7400000: Default Take
     9500000: //RootNode
   materials:
@@ -89,7 +65,7 @@ ModelImporter:
     normalSmoothAngle: 60
     normalImportMode: 0
     tangentImportMode: 3
-  importAnimation: 1
+  importAnimation: 0
   copyAvatar: 0
   humanDescription:
     human: []
@@ -104,7 +80,7 @@ ModelImporter:
     rootMotionBoneName: 
     hasTranslationDoF: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
