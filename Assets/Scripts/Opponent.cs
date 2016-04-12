@@ -3,21 +3,28 @@ using System.Collections;
 
 public class Opponent : MonoBehaviour {
 
+	//FOR ANIMATION
+	//use different animators linked to different animations for different attitudes
+
 	//most of this will be handled via scripting and not through physical
 	//interaction but there will be animations resultant
 
 	public int cartridge;
 	//add more functionality for multiple cartridges later
 
-	public float maxWaitTime = 3.5f;
+	public float maxFirstWaitTime = 2.5f;
 
 	public int cylinderIndex = 1;
+
+	public float waitChanceMod = 0f;
+	public float drinkChanceMod = 0f;
+	public float waitTimeMod = 0f;
 
 	public bool hammerBack;
 	public bool deciding = false;
 	public bool firstShot = true;
 
-	public GameManager gm;
+	private GameManager gm;
 
 	public GameObject blood;
 	public GameObject click;
@@ -76,15 +83,15 @@ public class Opponent : MonoBehaviour {
 
 	public IEnumerator DelayShot(bool notFirst){
 
-		if (Random.value >= .5 && !notFirst){ //half chance of just waiting forever
+		if (Random.value >= (.5 - waitChanceMod) && !notFirst){ //half chance of just waiting forever
 
-			yield return new WaitForSeconds(Random.Range(1f,maxWaitTime));
+			yield return new WaitForSeconds(Random.Range(1f,maxFirstWaitTime));
 			if (gm.curState == "shoot0"){
 				PullTrigger();
 			}
 		}
 		else if (notFirst){
-			yield return new WaitForSeconds(Random.Range(.5f, 2f));
+			yield return new WaitForSeconds(Random.Range(.5f, 2f) + waitTimeMod);
 			PullTrigger();
 		}
 	}
