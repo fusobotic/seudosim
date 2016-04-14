@@ -4,21 +4,24 @@ using System.Collections;
 public class Opponent : MonoBehaviour {
 
 	//FOR ANIMATION
-	//use different animators linked to different animations for different attitudes
 
+	//only focus on animations that are essential for input feedback
 	//most of this will be handled via scripting and not through physical
 	//interaction but there will be animations resultant
 
-	public int cartridge;
 	//add more functionality for multiple cartridges later
 
 	public float maxFirstWaitTime = 2.5f;
 
-	public int cylinderIndex = 1;
+	public int cylinderIndex = 1,
+			   cartridge,
+			   drinkIndex = 0,
+			   lethalDrink = 0;
+			   
 
-	public float waitChanceMod = 0f;
-	public float drinkChanceMod = 0f;
-	public float waitTimeMod = 0f;
+	public float waitChanceMod = 0f,
+				 waitTimeMod = 0f,
+				 drinkChanceMod = 0f;
 
 	public bool hammerBack;
 	public bool deciding = false;
@@ -33,9 +36,14 @@ public class Opponent : MonoBehaviour {
 	void Start () {
 		gm = GameObject.Find("GameManager").GetComponent<GameManager>();
 		FillCatriges();
+
+		/*
+		if(Items.equippedDrink){
+			Instantiate(drinks[Random.Range(0,drinks.Length)], drinkPos, Quaternion.identity);
+		}
+		*/
 	}
 
-	// Update is called once per frame
 	void Update () {
 		if(gm.curState == "shoot0" && firstShot){ //decide if he wants to shoot first
 			deciding = true;
@@ -55,19 +63,28 @@ public class Opponent : MonoBehaviour {
 
 	void FillCatriges(){
 		cartridge = Random.Range(1,7);
-		print(cartridge);
+
+		//doesn't need its own function
+		/*if (Items.equippedDrink){
+			lethalDrink = Random.Range(2,7); //drink itself might rewrite this value
+		}*/
 
 		if (Random.value >= .5){
 			hammerBack = true;
 		} else {
 			hammerBack = false;
 		}
-		//might end up that hammer back is only aeshetic since everything is random anyway
+		//hammer back is only aesthetic in this instance
 	}
 
 	void PullTrigger(){
-		print(cylinderIndex + " " + cartridge);
-		if(cartridge == cylinderIndex){
+		if(lethalDrink != 0 && Random.value >= (.5 - drinkChanceMod)){
+			StartCoroutine(Drink());
+			gm.curState = "shoot1";
+			// has a chance to take a drink anytime he would normally shoot
+		}
+
+		else if(cartridge == cylinderIndex){
 			//spawn an explosion as well
 			Instantiate(blood, new Vector3 (45f,3.4f,7.6f), Quaternion.Euler(0,90,0));
 			gm.curState = "shoot1"; //do this so that the camera pans before winning
@@ -93,6 +110,17 @@ public class Opponent : MonoBehaviour {
 		else if (notFirst){
 			yield return new WaitForSeconds(Random.Range(.5f, 2f) + waitTimeMod);
 			PullTrigger();
+		}
+	}
+
+	public IEnumerator Drink(){
+		drinkIndex++;
+		//play drink anim
+		yield return new WaitForSeconds(1); //animation length
+		
+		if (drinkIndex == lethalDrink){
+			gm.Win();
+			//killed opponent anim
 		}
 	}
 }

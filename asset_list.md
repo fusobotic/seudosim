@@ -1,12 +1,14 @@
 # Animations needed:
-- Player idle(s) for NPCs: Bored, Nervous, Eager, 
 - Trigger pull(s)
-- Click relief
+
 - Take drink
 - Death by bullet
 - Death by drink
 - Winning
 
+juicy: 
+- Click relief
+- Player idle(s) for NPCs: Bored, Nervous, Eager, 
 - Sexy shop owner animation?
 
 Drink ideas (maybe just have whole bottles so that the liquid isn’t obvious), or just animate the water level somehow.

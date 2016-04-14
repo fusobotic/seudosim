@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour {
 
 	public string curState;
 
+	public GameObject[] opponents;
+
 	public static GameManager Instance;
 
 	private GameObject revolver;
@@ -51,6 +53,10 @@ public class GameManager : MonoBehaviour {
 		cartConfirm = GameObject.Find("Confirm");
 		playAgain = GameObject.Find("PlayAgain");
 
+		if(opponents.Length != 0){
+			Instantiate(opponents[Random.Range(0,opponents.Length+1)], new Vector3(37.9f, -15.3f, 24.9f), Quaternion.identity);
+		}
+		
 		playAgain.SetActive(false);
 		cartConfirm.SetActive(false);
 		revolver.SetActive(false);
@@ -175,6 +181,7 @@ public class GameManager : MonoBehaviour {
 
 		Destroy (GameObject.Find ("StateBet")); //make a more sophsitocated transition later, but for now the testing phase needs to be quick
 		Destroy(GameObject.Find("BetButton"));
+		Destroy(GameObject.Find("CoinNum"));
 		Destroy(GameObject.Find("AllIn"));
 
 		GameObject.Find ("DragMat").GetComponent<Collider>().enabled = false;

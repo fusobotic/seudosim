@@ -7,6 +7,7 @@ public class Betting : MonoBehaviour {
 	public bool allIn;
 
 	public int coinCount;
+	private Text counter;
 
 	public GameObject coinFab;
 	public Transform coinSpawnPoint;
@@ -21,6 +22,7 @@ public class Betting : MonoBehaviour {
 		gm = GameObject.Find ("GameManager").GetComponent<GameManager> ();
 		coinSpawnPoint = GameObject.Find("CoinSpawnPoint").transform;
 		betButton = GameObject.Find("BetButton").GetComponent<Button>();
+		counter = GameObject.Find("CoinNum").GetComponent<Text>();
 		StartCoroutine(SpawnCoins());
 	}
 
@@ -35,6 +37,7 @@ public class Betting : MonoBehaviour {
 		} else {
 			betButton.interactable = true;
 		}
+		counter.text = ""+coinCount;
 		//change counter in top left corner of UI accordin to coinCount
 	}
 
