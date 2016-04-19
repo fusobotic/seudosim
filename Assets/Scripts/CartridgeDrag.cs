@@ -26,7 +26,7 @@ public class CartridgeDrag : MonoBehaviour {
 	}
 
 	void Update () {
-		print(startPos);
+		//print(startPos);
 	}
 
 	void OnMouseDrag(){

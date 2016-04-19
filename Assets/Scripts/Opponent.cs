@@ -16,6 +16,8 @@ public class Opponent : MonoBehaviour {
 	public int cylinderIndex = 1,
 			   cartridge,
 			   drinkIndex = 0,
+			   drinkMin;
+			   drinkMax;
 			   lethalDrink = 0;
 			   
 
@@ -31,17 +33,17 @@ public class Opponent : MonoBehaviour {
 
 	public GameObject blood;
 	public GameObject click;
+	public GameObject[] drinks; //just the glass models with modifiable level
 
 	// Use this for initialization
 	void Start () {
 		gm = GameObject.Find("GameManager").GetComponent<GameManager>();
 		FillCatriges();
 
-		/*
+		
 		if(Items.equippedDrink){
 			Instantiate(drinks[Random.Range(0,drinks.Length)], drinkPos, Quaternion.identity);
 		}
-		*/
 	}
 
 	void Update () {
@@ -65,9 +67,9 @@ public class Opponent : MonoBehaviour {
 		cartridge = Random.Range(1,7);
 
 		//doesn't need its own function
-		/*if (Items.equippedDrink){
-			lethalDrink = Random.Range(2,7); //drink itself might rewrite this value
-		}*/
+		if (Items.equippedDrink){
+			lethalDrink = Random.Range(drinkMin, drinkMax+1); //drink itself might rewrite this value
+		}
 
 		if (Random.value >= .5){
 			hammerBack = true;
@@ -78,8 +80,8 @@ public class Opponent : MonoBehaviour {
 	}
 
 	void PullTrigger(){
-		if(lethalDrink != 0 && Random.value >= (.5 - drinkChanceMod)){
-			StartCoroutine(Drink());
+		if(lethalDrink != 0 && Random.value >= (.75 - drinkChanceMod)){
+			StartCoroutine(Sip());
 			gm.curState = "shoot1";
 			// has a chance to take a drink anytime he would normally shoot
 		}
@@ -113,7 +115,7 @@ public class Opponent : MonoBehaviour {
 		}
 	}
 
-	public IEnumerator Drink(){
+	public IEnumerator Sip(){
 		drinkIndex++;
 		//play drink anim
 		yield return new WaitForSeconds(1); //animation length
