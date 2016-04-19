@@ -16,8 +16,8 @@ public class Opponent : MonoBehaviour {
 	public int cylinderIndex = 1,
 			   cartridge,
 			   drinkIndex = 0,
-			   drinkMin;
-			   drinkMax;
+			   drinkMin,
+			   drinkMax,
 			   lethalDrink = 0;
 			   
 
@@ -41,8 +41,8 @@ public class Opponent : MonoBehaviour {
 		FillCatriges();
 
 		
-		if(Items.equippedDrink){
-			Instantiate(drinks[Random.Range(0,drinks.Length)], drinkPos, Quaternion.identity);
+		if(Items.equippedDrink != null){
+			//Instantiate(drinks[Random.Range(0,drinks.Length)], drinkPos, Quaternion.identity);
 		}
 	}
 
@@ -67,7 +67,7 @@ public class Opponent : MonoBehaviour {
 		cartridge = Random.Range(1,7);
 
 		//doesn't need its own function
-		if (Items.equippedDrink){
+		if (Items.equippedDrink != null){
 			lethalDrink = Random.Range(drinkMin, drinkMax+1); //drink itself might rewrite this value
 		}
 

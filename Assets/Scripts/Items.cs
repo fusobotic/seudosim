@@ -45,7 +45,7 @@ public class Items : MonoBehaviour {
 	}
 
 	//[HideInInspector]//use this once you're done testing
-	public Item equippedDrink = null,
+	public static Item equippedDrink = null,
 				equippedHat = null,
 				equippedCharm = null,
 				equippedAnim = null;
