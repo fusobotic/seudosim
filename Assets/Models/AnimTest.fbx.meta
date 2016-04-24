@@ -1,0 +1,1220 @@
+fileFormatVersion: 2
+guid: 2984343e3cda382499f7d56c806b795b
+timeCreated: 1461446702
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Backsight
+    100004: Backsight_MeshPart0
+    100006: Backsight_MeshPart1
+    100008: Backsight_MeshPart2
+    100010: Barrel
+    100012: BlastPlate
+    100014: CharacterBase
+    100016: CharSkel
+    100018: Circle
+    100020: Cylinder
+    100022: Cylinder_MeshPart0
+    100024: Cylinder_MeshPart1
+    100026: DopeStick
+    100028: Flash
+    100030: FlashScale
+    100032: FlashScale_end
+    100034: FrontSight
+    100036: GunFrame
+    100038: GunTrigger
+    100040: Hammer
+    100042: Hand
+    100044: Handle
+    100046: Head
+    100048: Head_end
+    100050: Index1
+    100052: Index2
+    100054: Index3
+    100056: Index3_end
+    100058: Middle1
+    100060: Middle2
+    100062: Middle2_end
+    100064: Neck
+    100066: Pinky1
+    100068: Pinky2
+    100070: Pinky2_end
+    100072: Ring1
+    100074: Ring2
+    100076: Ring2_end
+    100078: RootCurvy
+    100080: Thumb1
+    100082: Thumb2
+    100084: Thumb2_end
+    100086: TriggerRot
+    100088: TriggerRot_end
+    100090: Beer
+    100092: Cube
+    100094: DrinkBone
+    100096: DrinkBone_end
+    400000: //RootNode
+    400002: Backsight
+    400004: Backsight_MeshPart0
+    400006: Backsight_MeshPart1
+    400008: Backsight_MeshPart2
+    400010: Barrel
+    400012: BlastPlate
+    400014: CharacterBase
+    400016: CharSkel
+    400018: Circle
+    400020: Cylinder
+    400022: Cylinder_MeshPart0
+    400024: Cylinder_MeshPart1
+    400026: DopeStick
+    400028: Flash
+    400030: FlashScale
+    400032: FlashScale_end
+    400034: FrontSight
+    400036: GunFrame
+    400038: GunTrigger
+    400040: Hammer
+    400042: Hand
+    400044: Handle
+    400046: Head
+    400048: Head_end
+    400050: Index1
+    400052: Index2
+    400054: Index3
+    400056: Index3_end
+    400058: Middle1
+    400060: Middle2
+    400062: Middle2_end
+    400064: Neck
+    400066: Pinky1
+    400068: Pinky2
+    400070: Pinky2_end
+    400072: Ring1
+    400074: Ring2
+    400076: Ring2_end
+    400078: RootCurvy
+    400080: Thumb1
+    400082: Thumb2
+    400084: Thumb2_end
+    400086: TriggerRot
+    400088: TriggerRot_end
+    400090: Beer
+    400092: Cube
+    400094: DrinkBone
+    400096: DrinkBone_end
+    2300000: Backsight_MeshPart0
+    2300002: Backsight_MeshPart1
+    2300004: Backsight_MeshPart2
+    2300006: Barrel
+    2300008: BlastPlate
+    2300010: Circle
+    2300012: Cylinder_MeshPart0
+    2300014: Cylinder_MeshPart1
+    2300016: DopeStick
+    2300018: Flash
+    2300020: FrontSight
+    2300022: GunFrame
+    2300024: GunTrigger
+    2300026: Hammer
+    2300028: Handle
+    2300030: Beer
+    2300032: Cube
+    3300000: Backsight_MeshPart0
+    3300002: Backsight_MeshPart1
+    3300004: Backsight_MeshPart2
+    3300006: Barrel
+    3300008: BlastPlate
+    3300010: Circle
+    3300012: Cylinder_MeshPart0
+    3300014: Cylinder_MeshPart1
+    3300016: DopeStick
+    3300018: Flash
+    3300020: FrontSight
+    3300022: GunFrame
+    3300024: GunTrigger
+    3300026: Hammer
+    3300028: Handle
+    3300030: Beer
+    3300032: Cube
+    4300000: Handle
+    4300002: Backsight_MeshPart0
+    4300004: Backsight_MeshPart1
+    4300006: Backsight_MeshPart2
+    4300008: FrontSight
+    4300010: Hammer
+    4300012: DopeStick
+    4300014: Barrel
+    4300016: GunFrame
+    4300018: Cylinder_MeshPart0
+    4300020: Cylinder_MeshPart1
+    4300022: BlastPlate
+    4300024: GunTrigger
+    4300026: Flash
+    4300028: CharacterBase
+    4300030: Circle
+    4300032: Cube
+    4300034: Beer
+    7400000: CharSkel|CubeAction
+    7400002: CharSkel|IdleAlpha
+    7400004: Flash|CubeAction
+    7400006: CharSkel|Click
+    7400008: CharSkel|HalfPull
+    7400010: CharSkel|FullPull
+    7400012: CharSkel|Death
+    7400014: CharSkel|PassOut
+    7400016: CharSkel|Won
+    7400018: CharSkel|Drink
+    9500000: //RootNode
+    11100000: //RootNode
+    13700000: CharacterBase
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 0
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: CharSkel|IdleAlpha
+      takeName: CharSkel|IdleAlpha
+      firstFrame: 0
+      lastFrame: 199
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: CharacterBase
+        weight: 1
+      - path: CharSkel
+        weight: 1
+      - path: CharSkel/Hand
+        weight: 1
+      - path: CharSkel/Hand/Backsight
+        weight: 1
+      - path: CharSkel/Hand/Backsight/Backsight_MeshPart0
+        weight: 1
+      - path: CharSkel/Hand/Backsight/Backsight_MeshPart1
+        weight: 1
+      - path: CharSkel/Hand/Backsight/Backsight_MeshPart2
+        weight: 1
+      - path: CharSkel/Hand/Barrel
+        weight: 1
+      - path: CharSkel/Hand/BlastPlate
+        weight: 1
+      - path: CharSkel/Hand/Cylinder
+        weight: 1
+      - path: CharSkel/Hand/Cylinder/Cylinder_MeshPart0
+        weight: 1
+      - path: CharSkel/Hand/Cylinder/Cylinder_MeshPart1
+        weight: 1
+      - path: CharSkel/Hand/DopeStick
+        weight: 1
+      - path: CharSkel/Hand/FlashScale
+        weight: 1
+      - path: CharSkel/Hand/FlashScale/Flash
+        weight: 1
+      - path: CharSkel/Hand/FlashScale/FlashScale_end
+        weight: 1
+      - path: CharSkel/Hand/FrontSight
+        weight: 1
+      - path: CharSkel/Hand/GunFrame
+        weight: 1
+      - path: CharSkel/Hand/Hammer
+        weight: 1
+      - path: CharSkel/Hand/Handle
+        weight: 1
+      - path: CharSkel/Hand/Index1
+        weight: 1
+      - path: CharSkel/Hand/Index1/Index2
+        weight: 1
+      - path: CharSkel/Hand/Index1/Index2/Index3
+        weight: 1
+      - path: CharSkel/Hand/Index1/Index2/Index3/Index3_end
+        weight: 1
+      - path: CharSkel/Hand/Middle1
+        weight: 1
+      - path: CharSkel/Hand/Middle1/Middle2
+        weight: 1
+      - path: CharSkel/Hand/Middle1/Middle2/Middle2_end
+        weight: 1
+      - path: CharSkel/Hand/Pinky1
+        weight: 1
+      - path: CharSkel/Hand/Pinky1/Pinky2
+        weight: 1
+      - path: CharSkel/Hand/Pinky1/Pinky2/Pinky2_end
+        weight: 1
+      - path: CharSkel/Hand/Ring1
+        weight: 1
+      - path: CharSkel/Hand/Ring1/Ring2
+        weight: 1
+      - path: CharSkel/Hand/Ring1/Ring2/Ring2_end
+        weight: 1
+      - path: CharSkel/Hand/Thumb1
+        weight: 1
+      - path: CharSkel/Hand/Thumb1/Thumb2
+        weight: 1
+      - path: CharSkel/Hand/Thumb1/Thumb2/Thumb2_end
+        weight: 1
+      - path: CharSkel/Hand/TriggerRot
+        weight: 1
+      - path: CharSkel/Hand/TriggerRot/GunTrigger
+        weight: 1
+      - path: CharSkel/Hand/TriggerRot/TriggerRot_end
+        weight: 1
+      - path: CharSkel/RootCurvy
+        weight: 1
+      - path: CharSkel/RootCurvy/Neck
+        weight: 1
+      - path: CharSkel/RootCurvy/Neck/Head
+        weight: 1
+      - path: CharSkel/RootCurvy/Neck/Head/Head_end
+        weight: 1
+      - path: Circle
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: CharSkel|Click
+      takeName: CharSkel|Click
+      firstFrame: 0
+      lastFrame: 94
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: CharacterBase
+        weight: 1
+      - path: CharSkel
+        weight: 1
+      - path: CharSkel/DrinkBone
+        weight: 1
+      - path: CharSkel/DrinkBone/Beer
+        weight: 1
+      - path: CharSkel/DrinkBone/DrinkBone_end
+        weight: 1
+      - path: CharSkel/Hand
+        weight: 1
+      - path: CharSkel/Hand/Backsight
+        weight: 1
+      - path: CharSkel/Hand/Backsight/Backsight_MeshPart0
+        weight: 1
+      - path: CharSkel/Hand/Backsight/Backsight_MeshPart1
+        weight: 1
+      - path: CharSkel/Hand/Backsight/Backsight_MeshPart2
+        weight: 1
+      - path: CharSkel/Hand/Barrel
+        weight: 1
+      - path: CharSkel/Hand/BlastPlate
+        weight: 1
+      - path: CharSkel/Hand/Cylinder
+        weight: 1
+      - path: CharSkel/Hand/Cylinder/Cylinder_MeshPart0
+        weight: 1
+      - path: CharSkel/Hand/Cylinder/Cylinder_MeshPart1
+        weight: 1
+      - path: CharSkel/Hand/DopeStick
+        weight: 1
+      - path: CharSkel/Hand/FlashScale
+        weight: 1
+      - path: CharSkel/Hand/FlashScale/Flash
+        weight: 1
+      - path: CharSkel/Hand/FlashScale/FlashScale_end
+        weight: 1
+      - path: CharSkel/Hand/FrontSight
+        weight: 1
+      - path: CharSkel/Hand/GunFrame
+        weight: 1
+      - path: CharSkel/Hand/Hammer
+        weight: 1
+      - path: CharSkel/Hand/Handle
+        weight: 1
+      - path: CharSkel/Hand/Index1
+        weight: 1
+      - path: CharSkel/Hand/Index1/Index2
+        weight: 1
+      - path: CharSkel/Hand/Index1/Index2/Index3
+        weight: 1
+      - path: CharSkel/Hand/Index1/Index2/Index3/Index3_end
+        weight: 1
+      - path: CharSkel/Hand/Middle1
+        weight: 1
+      - path: CharSkel/Hand/Middle1/Middle2
+        weight: 1
+      - path: CharSkel/Hand/Middle1/Middle2/Middle2_end
+        weight: 1
+      - path: CharSkel/Hand/Pinky1
+        weight: 1
+      - path: CharSkel/Hand/Pinky1/Pinky2
+        weight: 1
+      - path: CharSkel/Hand/Pinky1/Pinky2/Pinky2_end
+        weight: 1
+      - path: CharSkel/Hand/Ring1
+        weight: 1
+      - path: CharSkel/Hand/Ring1/Ring2
+        weight: 1
+      - path: CharSkel/Hand/Ring1/Ring2/Ring2_end
+        weight: 1
+      - path: CharSkel/Hand/Thumb1
+        weight: 1
+      - path: CharSkel/Hand/Thumb1/Thumb2
+        weight: 1
+      - path: CharSkel/Hand/Thumb1/Thumb2/Thumb2_end
+        weight: 1
+      - path: CharSkel/Hand/TriggerRot
+        weight: 1
+      - path: CharSkel/Hand/TriggerRot/GunTrigger
+        weight: 1
+      - path: CharSkel/Hand/TriggerRot/TriggerRot_end
+        weight: 1
+      - path: CharSkel/RootCurvy
+        weight: 1
+      - path: CharSkel/RootCurvy/Neck
+        weight: 1
+      - path: CharSkel/RootCurvy/Neck/Head
+        weight: 1
+      - path: CharSkel/RootCurvy/Neck/Head/Head_end
+        weight: 1
+      - path: Cube
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: CharSkel|HalfPull
+      takeName: CharSkel|HalfPull
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: CharacterBase
+        weight: 1
+      - path: CharSkel
+        weight: 1
+      - path: CharSkel/DrinkBone
+        weight: 1
+      - path: CharSkel/DrinkBone/Beer
+        weight: 1
+      - path: CharSkel/DrinkBone/DrinkBone_end
+        weight: 1
+      - path: CharSkel/Hand
+        weight: 1
+      - path: CharSkel/Hand/Backsight
+        weight: 1
+      - path: CharSkel/Hand/Backsight/Backsight_MeshPart0
+        weight: 1
+      - path: CharSkel/Hand/Backsight/Backsight_MeshPart1
+        weight: 1
+      - path: CharSkel/Hand/Backsight/Backsight_MeshPart2
+        weight: 1
+      - path: CharSkel/Hand/Barrel
+        weight: 1
+      - path: CharSkel/Hand/BlastPlate
+        weight: 1
+      - path: CharSkel/Hand/Cylinder
+        weight: 1
+      - path: CharSkel/Hand/Cylinder/Cylinder_MeshPart0
+        weight: 1
+      - path: CharSkel/Hand/Cylinder/Cylinder_MeshPart1
+        weight: 1
+      - path: CharSkel/Hand/DopeStick
+        weight: 1
+      - path: CharSkel/Hand/FlashScale
+        weight: 1
+      - path: CharSkel/Hand/FlashScale/Flash
+        weight: 1
+      - path: CharSkel/Hand/FlashScale/FlashScale_end
+        weight: 1
+      - path: CharSkel/Hand/FrontSight
+        weight: 1
+      - path: CharSkel/Hand/GunFrame
+        weight: 1
+      - path: CharSkel/Hand/Hammer
+        weight: 1
+      - path: CharSkel/Hand/Handle
+        weight: 1
+      - path: CharSkel/Hand/Index1
+        weight: 1
+      - path: CharSkel/Hand/Index1/Index2
+        weight: 1
+      - path: CharSkel/Hand/Index1/Index2/Index3
+        weight: 1
+      - path: CharSkel/Hand/Index1/Index2/Index3/Index3_end
+        weight: 1
+      - path: CharSkel/Hand/Middle1
+        weight: 1
+      - path: CharSkel/Hand/Middle1/Middle2
+        weight: 1
+      - path: CharSkel/Hand/Middle1/Middle2/Middle2_end
+        weight: 1
+      - path: CharSkel/Hand/Pinky1
+        weight: 1
+      - path: CharSkel/Hand/Pinky1/Pinky2
+        weight: 1
+      - path: CharSkel/Hand/Pinky1/Pinky2/Pinky2_end
+        weight: 1
+      - path: CharSkel/Hand/Ring1
+        weight: 1
+      - path: CharSkel/Hand/Ring1/Ring2
+        weight: 1
+      - path: CharSkel/Hand/Ring1/Ring2/Ring2_end
+        weight: 1
+      - path: CharSkel/Hand/Thumb1
+        weight: 1
+      - path: CharSkel/Hand/Thumb1/Thumb2
+        weight: 1
+      - path: CharSkel/Hand/Thumb1/Thumb2/Thumb2_end
+        weight: 1
+      - path: CharSkel/Hand/TriggerRot
+        weight: 1
+      - path: CharSkel/Hand/TriggerRot/GunTrigger
+        weight: 1
+      - path: CharSkel/Hand/TriggerRot/TriggerRot_end
+        weight: 1
+      - path: CharSkel/RootCurvy
+        weight: 1
+      - path: CharSkel/RootCurvy/Neck
+        weight: 1
+      - path: CharSkel/RootCurvy/Neck/Head
+        weight: 1
+      - path: CharSkel/RootCurvy/Neck/Head/Head_end
+        weight: 1
+      - path: Cube
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: CharSkel|FullPull
+      takeName: CharSkel|FullPull
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: CharacterBase
+        weight: 1
+      - path: CharSkel
+        weight: 1
+      - path: CharSkel/DrinkBone
+        weight: 1
+      - path: CharSkel/DrinkBone/Beer
+        weight: 1
+      - path: CharSkel/DrinkBone/DrinkBone_end
+        weight: 1
+      - path: CharSkel/Hand
+        weight: 1
+      - path: CharSkel/Hand/Backsight
+        weight: 1
+      - path: CharSkel/Hand/Backsight/Backsight_MeshPart0
+        weight: 1
+      - path: CharSkel/Hand/Backsight/Backsight_MeshPart1
+        weight: 1
+      - path: CharSkel/Hand/Backsight/Backsight_MeshPart2
+        weight: 1
+      - path: CharSkel/Hand/Barrel
+        weight: 1
+      - path: CharSkel/Hand/BlastPlate
+        weight: 1
+      - path: CharSkel/Hand/Cylinder
+        weight: 1
+      - path: CharSkel/Hand/Cylinder/Cylinder_MeshPart0
+        weight: 1
+      - path: CharSkel/Hand/Cylinder/Cylinder_MeshPart1
+        weight: 1
+      - path: CharSkel/Hand/DopeStick
+        weight: 1
+      - path: CharSkel/Hand/FlashScale
+        weight: 1
+      - path: CharSkel/Hand/FlashScale/Flash
+        weight: 1
+      - path: CharSkel/Hand/FlashScale/FlashScale_end
+        weight: 1
+      - path: CharSkel/Hand/FrontSight
+        weight: 1
+      - path: CharSkel/Hand/GunFrame
+        weight: 1
+      - path: CharSkel/Hand/Hammer
+        weight: 1
+      - path: CharSkel/Hand/Handle
+        weight: 1
+      - path: CharSkel/Hand/Index1
+        weight: 1
+      - path: CharSkel/Hand/Index1/Index2
+        weight: 1
+      - path: CharSkel/Hand/Index1/Index2/Index3
+        weight: 1
+      - path: CharSkel/Hand/Index1/Index2/Index3/Index3_end
+        weight: 1
+      - path: CharSkel/Hand/Middle1
+        weight: 1
+      - path: CharSkel/Hand/Middle1/Middle2
+        weight: 1
+      - path: CharSkel/Hand/Middle1/Middle2/Middle2_end
+        weight: 1
+      - path: CharSkel/Hand/Pinky1
+        weight: 1
+      - path: CharSkel/Hand/Pinky1/Pinky2
+        weight: 1
+      - path: CharSkel/Hand/Pinky1/Pinky2/Pinky2_end
+        weight: 1
+      - path: CharSkel/Hand/Ring1
+        weight: 1
+      - path: CharSkel/Hand/Ring1/Ring2
+        weight: 1
+      - path: CharSkel/Hand/Ring1/Ring2/Ring2_end
+        weight: 1
+      - path: CharSkel/Hand/Thumb1
+        weight: 1
+      - path: CharSkel/Hand/Thumb1/Thumb2
+        weight: 1
+      - path: CharSkel/Hand/Thumb1/Thumb2/Thumb2_end
+        weight: 1
+      - path: CharSkel/Hand/TriggerRot
+        weight: 1
+      - path: CharSkel/Hand/TriggerRot/GunTrigger
+        weight: 1
+      - path: CharSkel/Hand/TriggerRot/TriggerRot_end
+        weight: 1
+      - path: CharSkel/RootCurvy
+        weight: 1
+      - path: CharSkel/RootCurvy/Neck
+        weight: 1
+      - path: CharSkel/RootCurvy/Neck/Head
+        weight: 1
+      - path: CharSkel/RootCurvy/Neck/Head/Head_end
+        weight: 1
+      - path: Cube
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: CharSkel|Death
+      takeName: CharSkel|Death
+      firstFrame: 0
+      lastFrame: 67
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: CharacterBase
+        weight: 1
+      - path: CharSkel
+        weight: 1
+      - path: CharSkel/DrinkBone
+        weight: 1
+      - path: CharSkel/DrinkBone/Beer
+        weight: 1
+      - path: CharSkel/DrinkBone/DrinkBone_end
+        weight: 1
+      - path: CharSkel/Hand
+        weight: 1
+      - path: CharSkel/Hand/Backsight
+        weight: 1
+      - path: CharSkel/Hand/Backsight/Backsight_MeshPart0
+        weight: 1
+      - path: CharSkel/Hand/Backsight/Backsight_MeshPart1
+        weight: 1
+      - path: CharSkel/Hand/Backsight/Backsight_MeshPart2
+        weight: 1
+      - path: CharSkel/Hand/Barrel
+        weight: 1
+      - path: CharSkel/Hand/BlastPlate
+        weight: 1
+      - path: CharSkel/Hand/Cylinder
+        weight: 1
+      - path: CharSkel/Hand/Cylinder/Cylinder_MeshPart0
+        weight: 1
+      - path: CharSkel/Hand/Cylinder/Cylinder_MeshPart1
+        weight: 1
+      - path: CharSkel/Hand/DopeStick
+        weight: 1
+      - path: CharSkel/Hand/FlashScale
+        weight: 1
+      - path: CharSkel/Hand/FlashScale/Flash
+        weight: 1
+      - path: CharSkel/Hand/FlashScale/FlashScale_end
+        weight: 1
+      - path: CharSkel/Hand/FrontSight
+        weight: 1
+      - path: CharSkel/Hand/GunFrame
+        weight: 1
+      - path: CharSkel/Hand/Hammer
+        weight: 1
+      - path: CharSkel/Hand/Handle
+        weight: 1
+      - path: CharSkel/Hand/Index1
+        weight: 1
+      - path: CharSkel/Hand/Index1/Index2
+        weight: 1
+      - path: CharSkel/Hand/Index1/Index2/Index3
+        weight: 1
+      - path: CharSkel/Hand/Index1/Index2/Index3/Index3_end
+        weight: 1
+      - path: CharSkel/Hand/Middle1
+        weight: 1
+      - path: CharSkel/Hand/Middle1/Middle2
+        weight: 1
+      - path: CharSkel/Hand/Middle1/Middle2/Middle2_end
+        weight: 1
+      - path: CharSkel/Hand/Pinky1
+        weight: 1
+      - path: CharSkel/Hand/Pinky1/Pinky2
+        weight: 1
+      - path: CharSkel/Hand/Pinky1/Pinky2/Pinky2_end
+        weight: 1
+      - path: CharSkel/Hand/Ring1
+        weight: 1
+      - path: CharSkel/Hand/Ring1/Ring2
+        weight: 1
+      - path: CharSkel/Hand/Ring1/Ring2/Ring2_end
+        weight: 1
+      - path: CharSkel/Hand/Thumb1
+        weight: 1
+      - path: CharSkel/Hand/Thumb1/Thumb2
+        weight: 1
+      - path: CharSkel/Hand/Thumb1/Thumb2/Thumb2_end
+        weight: 1
+      - path: CharSkel/Hand/TriggerRot
+        weight: 1
+      - path: CharSkel/Hand/TriggerRot/GunTrigger
+        weight: 1
+      - path: CharSkel/Hand/TriggerRot/TriggerRot_end
+        weight: 1
+      - path: CharSkel/RootCurvy
+        weight: 1
+      - path: CharSkel/RootCurvy/Neck
+        weight: 1
+      - path: CharSkel/RootCurvy/Neck/Head
+        weight: 1
+      - path: CharSkel/RootCurvy/Neck/Head/Head_end
+        weight: 1
+      - path: Cube
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: CharSkel|PassOut
+      takeName: CharSkel|PassOut
+      firstFrame: 0
+      lastFrame: 109
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: CharacterBase
+        weight: 1
+      - path: CharSkel
+        weight: 1
+      - path: CharSkel/DrinkBone
+        weight: 1
+      - path: CharSkel/DrinkBone/Beer
+        weight: 1
+      - path: CharSkel/DrinkBone/DrinkBone_end
+        weight: 1
+      - path: CharSkel/Hand
+        weight: 1
+      - path: CharSkel/Hand/Backsight
+        weight: 1
+      - path: CharSkel/Hand/Backsight/Backsight_MeshPart0
+        weight: 1
+      - path: CharSkel/Hand/Backsight/Backsight_MeshPart1
+        weight: 1
+      - path: CharSkel/Hand/Backsight/Backsight_MeshPart2
+        weight: 1
+      - path: CharSkel/Hand/Barrel
+        weight: 1
+      - path: CharSkel/Hand/BlastPlate
+        weight: 1
+      - path: CharSkel/Hand/Cylinder
+        weight: 1
+      - path: CharSkel/Hand/Cylinder/Cylinder_MeshPart0
+        weight: 1
+      - path: CharSkel/Hand/Cylinder/Cylinder_MeshPart1
+        weight: 1
+      - path: CharSkel/Hand/DopeStick
+        weight: 1
+      - path: CharSkel/Hand/FlashScale
+        weight: 1
+      - path: CharSkel/Hand/FlashScale/Flash
+        weight: 1
+      - path: CharSkel/Hand/FlashScale/FlashScale_end
+        weight: 1
+      - path: CharSkel/Hand/FrontSight
+        weight: 1
+      - path: CharSkel/Hand/GunFrame
+        weight: 1
+      - path: CharSkel/Hand/Hammer
+        weight: 1
+      - path: CharSkel/Hand/Handle
+        weight: 1
+      - path: CharSkel/Hand/Index1
+        weight: 1
+      - path: CharSkel/Hand/Index1/Index2
+        weight: 1
+      - path: CharSkel/Hand/Index1/Index2/Index3
+        weight: 1
+      - path: CharSkel/Hand/Index1/Index2/Index3/Index3_end
+        weight: 1
+      - path: CharSkel/Hand/Middle1
+        weight: 1
+      - path: CharSkel/Hand/Middle1/Middle2
+        weight: 1
+      - path: CharSkel/Hand/Middle1/Middle2/Middle2_end
+        weight: 1
+      - path: CharSkel/Hand/Pinky1
+        weight: 1
+      - path: CharSkel/Hand/Pinky1/Pinky2
+        weight: 1
+      - path: CharSkel/Hand/Pinky1/Pinky2/Pinky2_end
+        weight: 1
+      - path: CharSkel/Hand/Ring1
+        weight: 1
+      - path: CharSkel/Hand/Ring1/Ring2
+        weight: 1
+      - path: CharSkel/Hand/Ring1/Ring2/Ring2_end
+        weight: 1
+      - path: CharSkel/Hand/Thumb1
+        weight: 1
+      - path: CharSkel/Hand/Thumb1/Thumb2
+        weight: 1
+      - path: CharSkel/Hand/Thumb1/Thumb2/Thumb2_end
+        weight: 1
+      - path: CharSkel/Hand/TriggerRot
+        weight: 1
+      - path: CharSkel/Hand/TriggerRot/GunTrigger
+        weight: 1
+      - path: CharSkel/Hand/TriggerRot/TriggerRot_end
+        weight: 1
+      - path: CharSkel/RootCurvy
+        weight: 1
+      - path: CharSkel/RootCurvy/Neck
+        weight: 1
+      - path: CharSkel/RootCurvy/Neck/Head
+        weight: 1
+      - path: CharSkel/RootCurvy/Neck/Head/Head_end
+        weight: 1
+      - path: Cube
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: CharSkel|Won
+      takeName: CharSkel|Won
+      firstFrame: 0
+      lastFrame: 42
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: CharacterBase
+        weight: 1
+      - path: CharSkel
+        weight: 1
+      - path: CharSkel/DrinkBone
+        weight: 1
+      - path: CharSkel/DrinkBone/Beer
+        weight: 1
+      - path: CharSkel/DrinkBone/DrinkBone_end
+        weight: 1
+      - path: CharSkel/Hand
+        weight: 1
+      - path: CharSkel/Hand/Backsight
+        weight: 1
+      - path: CharSkel/Hand/Backsight/Backsight_MeshPart0
+        weight: 1
+      - path: CharSkel/Hand/Backsight/Backsight_MeshPart1
+        weight: 1
+      - path: CharSkel/Hand/Backsight/Backsight_MeshPart2
+        weight: 1
+      - path: CharSkel/Hand/Barrel
+        weight: 1
+      - path: CharSkel/Hand/BlastPlate
+        weight: 1
+      - path: CharSkel/Hand/Cylinder
+        weight: 1
+      - path: CharSkel/Hand/Cylinder/Cylinder_MeshPart0
+        weight: 1
+      - path: CharSkel/Hand/Cylinder/Cylinder_MeshPart1
+        weight: 1
+      - path: CharSkel/Hand/DopeStick
+        weight: 1
+      - path: CharSkel/Hand/FlashScale
+        weight: 1
+      - path: CharSkel/Hand/FlashScale/Flash
+        weight: 1
+      - path: CharSkel/Hand/FlashScale/FlashScale_end
+        weight: 1
+      - path: CharSkel/Hand/FrontSight
+        weight: 1
+      - path: CharSkel/Hand/GunFrame
+        weight: 1
+      - path: CharSkel/Hand/Hammer
+        weight: 1
+      - path: CharSkel/Hand/Handle
+        weight: 1
+      - path: CharSkel/Hand/Index1
+        weight: 1
+      - path: CharSkel/Hand/Index1/Index2
+        weight: 1
+      - path: CharSkel/Hand/Index1/Index2/Index3
+        weight: 1
+      - path: CharSkel/Hand/Index1/Index2/Index3/Index3_end
+        weight: 1
+      - path: CharSkel/Hand/Middle1
+        weight: 1
+      - path: CharSkel/Hand/Middle1/Middle2
+        weight: 1
+      - path: CharSkel/Hand/Middle1/Middle2/Middle2_end
+        weight: 1
+      - path: CharSkel/Hand/Pinky1
+        weight: 1
+      - path: CharSkel/Hand/Pinky1/Pinky2
+        weight: 1
+      - path: CharSkel/Hand/Pinky1/Pinky2/Pinky2_end
+        weight: 1
+      - path: CharSkel/Hand/Ring1
+        weight: 1
+      - path: CharSkel/Hand/Ring1/Ring2
+        weight: 1
+      - path: CharSkel/Hand/Ring1/Ring2/Ring2_end
+        weight: 1
+      - path: CharSkel/Hand/Thumb1
+        weight: 1
+      - path: CharSkel/Hand/Thumb1/Thumb2
+        weight: 1
+      - path: CharSkel/Hand/Thumb1/Thumb2/Thumb2_end
+        weight: 1
+      - path: CharSkel/Hand/TriggerRot
+        weight: 1
+      - path: CharSkel/Hand/TriggerRot/GunTrigger
+        weight: 1
+      - path: CharSkel/Hand/TriggerRot/TriggerRot_end
+        weight: 1
+      - path: CharSkel/RootCurvy
+        weight: 1
+      - path: CharSkel/RootCurvy/Neck
+        weight: 1
+      - path: CharSkel/RootCurvy/Neck/Head
+        weight: 1
+      - path: CharSkel/RootCurvy/Neck/Head/Head_end
+        weight: 1
+      - path: Cube
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: CharSkel|Drink
+      takeName: CharSkel|Drink
+      firstFrame: 0
+      lastFrame: 145
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: CharacterBase
+        weight: 1
+      - path: CharSkel
+        weight: 1
+      - path: CharSkel/DrinkBone
+        weight: 1
+      - path: CharSkel/DrinkBone/Beer
+        weight: 1
+      - path: CharSkel/DrinkBone/DrinkBone_end
+        weight: 1
+      - path: CharSkel/Hand
+        weight: 1
+      - path: CharSkel/Hand/Backsight
+        weight: 1
+      - path: CharSkel/Hand/Backsight/Backsight_MeshPart0
+        weight: 1
+      - path: CharSkel/Hand/Backsight/Backsight_MeshPart1
+        weight: 1
+      - path: CharSkel/Hand/Backsight/Backsight_MeshPart2
+        weight: 1
+      - path: CharSkel/Hand/Barrel
+        weight: 1
+      - path: CharSkel/Hand/BlastPlate
+        weight: 1
+      - path: CharSkel/Hand/Cylinder
+        weight: 1
+      - path: CharSkel/Hand/Cylinder/Cylinder_MeshPart0
+        weight: 1
+      - path: CharSkel/Hand/Cylinder/Cylinder_MeshPart1
+        weight: 1
+      - path: CharSkel/Hand/DopeStick
+        weight: 1
+      - path: CharSkel/Hand/FlashScale
+        weight: 1
+      - path: CharSkel/Hand/FlashScale/Flash
+        weight: 1
+      - path: CharSkel/Hand/FlashScale/FlashScale_end
+        weight: 1
+      - path: CharSkel/Hand/FrontSight
+        weight: 1
+      - path: CharSkel/Hand/GunFrame
+        weight: 1
+      - path: CharSkel/Hand/Hammer
+        weight: 1
+      - path: CharSkel/Hand/Handle
+        weight: 1
+      - path: CharSkel/Hand/Index1
+        weight: 1
+      - path: CharSkel/Hand/Index1/Index2
+        weight: 1
+      - path: CharSkel/Hand/Index1/Index2/Index3
+        weight: 1
+      - path: CharSkel/Hand/Index1/Index2/Index3/Index3_end
+        weight: 1
+      - path: CharSkel/Hand/Middle1
+        weight: 1
+      - path: CharSkel/Hand/Middle1/Middle2
+        weight: 1
+      - path: CharSkel/Hand/Middle1/Middle2/Middle2_end
+        weight: 1
+      - path: CharSkel/Hand/Pinky1
+        weight: 1
+      - path: CharSkel/Hand/Pinky1/Pinky2
+        weight: 1
+      - path: CharSkel/Hand/Pinky1/Pinky2/Pinky2_end
+        weight: 1
+      - path: CharSkel/Hand/Ring1
+        weight: 1
+      - path: CharSkel/Hand/Ring1/Ring2
+        weight: 1
+      - path: CharSkel/Hand/Ring1/Ring2/Ring2_end
+        weight: 1
+      - path: CharSkel/Hand/Thumb1
+        weight: 1
+      - path: CharSkel/Hand/Thumb1/Thumb2
+        weight: 1
+      - path: CharSkel/Hand/Thumb1/Thumb2/Thumb2_end
+        weight: 1
+      - path: CharSkel/Hand/TriggerRot
+        weight: 1
+      - path: CharSkel/Hand/TriggerRot/GunTrigger
+        weight: 1
+      - path: CharSkel/Hand/TriggerRot/TriggerRot_end
+        weight: 1
+      - path: CharSkel/RootCurvy
+        weight: 1
+      - path: CharSkel/RootCurvy/Neck
+        weight: 1
+      - path: CharSkel/RootCurvy/Neck/Head
+        weight: 1
+      - path: CharSkel/RootCurvy/Neck/Head/Head_end
+        weight: 1
+      - path: Cube
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
