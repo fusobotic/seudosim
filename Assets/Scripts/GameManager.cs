@@ -17,15 +17,19 @@ public class GameManager : MonoBehaviour {
 
 	public static GameManager Instance;
 
-	private GameObject revolver;
+	private GameObject[] revolver;
+	private GameObject playerModel;
 	private GameObject camPanner;
 	private GameObject cartridges;
 	private GameObject cylinder;
+	private GameObject cylinderModel;
 	private GameObject cartConfirm;
 	private GameObject playAgain;
 
 	private Vector3 cartridgesLoc;
 	private Vector3 cylinderLoc;
+
+	public Animator playerAnim;
 
 	void Awake(){
 		if (Instance)
@@ -43,29 +47,39 @@ public class GameManager : MonoBehaviour {
 	}
 
 	void RoundStart(){
+		print("working");
 		cartridgeCount = 0;
 		Physics.gravity = new Vector3(0, 0, 9.81f);
 		curState = "bet";
-		revolver = GameObject.Find("Revolver");
+		//revolver = GameObject.FindGameObjectsWithTag("PlayerRevolver");
+		playerModel = GameObject.Find("PlayerModel");
 		camPanner = GameObject.Find("CameraPanner");
 		cartridges = GameObject.Find("Cartridges");
 		cylinder = GameObject.Find("Cylinder");
+		cylinderModel = GameObject.Find("CylinderModel");
 		cartConfirm = GameObject.Find("Confirm");
 		playAgain = GameObject.Find("PlayAgain");
 
-		if(opponents.Length != 0){
+		
+
+		/*if(opponents.Length != 0){
 			Instantiate(opponents[Random.Range(0,opponents.Length+1)], new Vector3(37.9f, -15.3f, 24.9f), Quaternion.identity);
-		}
+		}*/
 		
 		playAgain.SetActive(false);
 		cartConfirm.SetActive(false);
-		revolver.SetActive(false);
+		//revolver.SetActive(false);
+
+		cylinderModel.transform.parent = cylinder.transform;
+
+		playerModel.SetActive(false);
 
 		cartridgesLoc = cartridges.transform.position;
 		cylinderLoc = cylinder.transform.position;
 
 		cartridges.transform.localPosition = new Vector3(-5.85f, .44f, 0);
 		cylinder.transform.localPosition = new Vector3(10.8f, 2.2174f, -2.0914f);
+		
 	}
 
 	void OnLevelWasLoaded(int level){
@@ -99,7 +113,7 @@ public class GameManager : MonoBehaviour {
 			if (cartConfirm.activeSelf == false){
 					cartConfirm.SetActive(true);
 			}
-			//iTween.MoveUpdate(cylinder, new Vector3(2.02f, 2.2174f, -2.0914f), 1f); //not working for some reason :/
+			//iTween.MoveUpdate(cylinder, cylinderLoc, 1f); //not working because of rigidbody?
 			cylinder.transform.localPosition = cylinderLoc;
 			iTween.MoveUpdate(cartridges, cartridgesLoc, 1f);
 
@@ -229,7 +243,8 @@ public class GameManager : MonoBehaviour {
 		}
 
 		GameObject.Find ("Cylinder").GetComponent<CylinderRevolve>().enabled = true;
-		revolver.SetActive(true);
+		//revolver.SetActive(true);
+		playerModel.SetActive(true);
 
 		//fade in the Revolver object
 

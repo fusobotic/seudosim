@@ -24,7 +24,7 @@ public class TriggerPull : MonoBehaviour {
 		
 		if(!cylinderRevolve.hammerBack){
 			gm.curState = "shoot1";
-			iTween.RotateTo(hammer, iTween.Hash("x", -90, "easeType", "easeOutExpo", "time", .05));
+			iTween.RotateTo(gameObject, iTween.Hash("x", 45, "easeType", "easeOutExpo", "time", .25));
 			iTween.RotateAdd (cylinder, iTween.Hash("z", 60, "time", .1, "easeType", cylinderRevolve.easeType));
 			//player sound for pull back and revolveNum (or not if the revolve sound happens automatically)
 			halfPulled = true;

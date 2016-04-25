@@ -46,7 +46,7 @@ public class CylinderRevolve : MonoBehaviour {
 			hammerBack = false;
 		}
 
-		GameObject.Find("Trigger").GetComponent<Collider>().enabled = true;
+		GameObject.Find("TriggerRot").GetComponent<Collider>().enabled = true;
 		iTween.MoveTo(GameObject.Find ("CameraPanner"), iTween.Hash ("z", 9.8, "y", -3.1, "time", .5f));
 		Camera.main.fieldOfView = 30;
 		gm.curState = "shoot0";
