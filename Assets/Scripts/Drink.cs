@@ -21,7 +21,7 @@ public class Drink : MonoBehaviour {
 	}
 
 	void Update(){
-		if(Input.GetKeyDown(KeyCode.E)){
+		if(Input.GetKeyDown(KeyCode.E) && (gm.curState == "shoot1" || gm.curState == "shoot0")){
 			StartCoroutine(Sip());
 		}
 		print(passOutIndex + " / " + passOutLimit);
@@ -37,14 +37,19 @@ public class Drink : MonoBehaviour {
 				//maybe clear the string and float then call drink again?
 			}
 		} else {
+			gm.playerAnim.SetTrigger("Drink");
 			//regular drink function
-			gm.curState = "shoot2";
+			
 			passOutIndex++;
 			//play short animation
-			yield return new WaitForSeconds (.1f); //for anim to finish, sub anim length
+			yield return new WaitForSeconds (gm.playerAnim.GetCurrentAnimatorStateInfo(0).length); //for anim to finish, sub anim length
 			if(passOutIndex == passOutLimit){
+				gm.playerAnim.SetTrigger("PassOut");
 				gm.Lose();
 				//maybe play drink death animation?
+			} else {
+				gm.playerAnim.SetTrigger("Idle");
+				gm.curState = "shoot2";
 			}
 
 			//maybe also reduce the size of the drink here
@@ -52,5 +57,10 @@ public class Drink : MonoBehaviour {
 		}
 	}
 
+	void OnMouseDown(){
+		if(gm.curState == "shoot1" || gm.curState == "shoot0"){
+			Sip();
+		}
+	}
 	//other custom functions here
 }

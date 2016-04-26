@@ -59,6 +59,7 @@ public class GameManager : MonoBehaviour {
 		cylinderModel = GameObject.Find("CylinderModel");
 		cartConfirm = GameObject.Find("Confirm");
 		playAgain = GameObject.Find("PlayAgain");
+		playerAnim = GameObject.Find("PlayerModel").GetComponent<Animator>();
 
 		
 
@@ -146,15 +147,19 @@ public class GameManager : MonoBehaviour {
 	}
 
 	public void Lose() {
+		print("lost");
+		//opponent.anim.SetTrigger("Won");
+		GameObject.Find("Opponent").GetComponent<Opponent>().enabled = false;
 		curState = "lose";
 		currentCoins -= currentBet;
 		roundLosses++;
-		SceneManager.LoadScene("Death");
+		//SceneManager.LoadScene("Death");
 		//turn screen black and then load menu scene
 	}
 
 	public void Win(){
 		curState = "won";
+		GameObject.Find("TriggerRot").GetComponent<Collider>().enabled = false;
 		currentCoins += (currentBet * 2);
 		currentBet = 0;
 		print(currentCoins);
@@ -180,15 +185,15 @@ public class GameManager : MonoBehaviour {
 
 		GameObject mat = GameObject.Find ("DragMat");
 
-		if (mat.GetComponent<Betting> ().allIn) {
+		if (mat.GetComponent<Betting>().allIn) {
 			mat.GetComponent<Betting>().enabled = false;
-			mat.GetComponent<BoxCollider> ().enabled = false;
+			mat.GetComponent<BoxCollider>().enabled = false;
 			iTween.MoveTo (mat, iTween.Hash ("x", 6.46f, "y", 6.12f, "easeType", "easeInOutExpo", "time", .5));
 			currentCoins = currentBet;
 		} else {
 			currentBet = mat.GetComponent<Betting> ().coinCount;
 			mat.GetComponent<Betting>().enabled = false;
-			mat.GetComponent<BoxCollider> ().enabled = false;
+			mat.GetComponent<BoxCollider>().enabled = false;
 		}
 		
 
@@ -245,6 +250,7 @@ public class GameManager : MonoBehaviour {
 		GameObject.Find ("Cylinder").GetComponent<CylinderRevolve>().enabled = true;
 		//revolver.SetActive(true);
 		playerModel.SetActive(true);
+		cylinder.transform.parent = GameObject.Find("Hand").transform;
 
 		//fade in the Revolver object
 

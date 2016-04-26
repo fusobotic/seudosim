@@ -13,6 +13,7 @@ public class CartridgeDrag : MonoBehaviour {
 	private Vector3 startPos;
 	private Vector3 startRot;
 	private bool chambered = false;
+	private GameManager gm;
 
 	//private GameManager gm; //probably don't need this yet
 
@@ -21,7 +22,7 @@ public class CartridgeDrag : MonoBehaviour {
 		rb = GetComponent<Rigidbody> ();
 		//startPos = transform.position;
 		startRot = transform.eulerAngles;
-
+		gm = GameObject.Find("GameManager").GetComponent<GameManager>();
 		//gm = GameObject.Find("GameManager").GetComponent<GameManager>();
 	}
 
@@ -82,8 +83,11 @@ public class CartridgeDrag : MonoBehaviour {
 
 	public IEnumerator Fired(){
 		if (chambered){
-			yield return new WaitForSeconds (.01f); //just wait for the animation or anything else
-			GameObject.Find("GameManager").GetComponent<GameManager>().Lose(); //calls lose function on GameManger
+			yield return new WaitForSeconds (.01f); //for the hammer to fall
+			gm.playerAnim.ResetTrigger("Click");
+			gm.playerAnim.ResetTrigger("Idle");
+			gm.playerAnim.SetTrigger("Death");
+			gm.Lose(); //calls lose function on GameManger
 		}
 	}
 }

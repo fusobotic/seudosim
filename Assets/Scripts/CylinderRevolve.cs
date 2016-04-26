@@ -40,7 +40,7 @@ public class CylinderRevolve : MonoBehaviour {
 		yield return new WaitForSeconds(spinTime + .25f);
 		rotating = false;
 		hammer.GetComponent<Collider>().enabled = false; //disables hammer being toggled anymore
-		if (hammer.transform.eulerAngles.x > 2) {
+		if (hammer.transform.localEulerAngles.x > 2) {
 			hammerBack = true;
 		}else{
 			hammerBack = false;
@@ -73,14 +73,17 @@ public class CylinderRevolve : MonoBehaviour {
 		if(hammerBack){
 			hammerBack = false;
 			//iTween.RotateAdd (gameObject, iTween.Hash("z", 60, "time", .5, "easeType", easeType));
-			iTween.RotateTo(hammer, iTween.Hash("x", 0, "easeType", "easeInExpo", "time", .01));
+			iTween.RotateTo(hammer, iTween.Hash("x", 0, "easeType", "easeOutExpo", "islocal", true, "time", .25));
 
 		}
 		GameObject[] cartridges = GameObject.FindGameObjectsWithTag("Cartridge");
 		foreach (GameObject cartridge in cartridges ){
 			CartridgeDrag script = cartridge.GetComponent<CartridgeDrag>();
+			gm.playerAnim.SetTrigger("Click");
+			gm.playerAnim.SetTrigger("Idle");
 			StartCoroutine(script.Fired());
 		}
+
 
 		//maybe make the entire screen a button for this?
 
