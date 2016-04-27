@@ -83,6 +83,8 @@ public class CartridgeDrag : MonoBehaviour {
 
 	public IEnumerator Fired(){
 		if (chambered){
+			GameObject.Find("Opponent").GetComponent<Opponent>().StopAllCoroutines();
+			GameObject.Find("Opponent").GetComponent<Opponent>().enabled = false;
 			yield return new WaitForSeconds (.01f); //for the hammer to fall
 			gm.playerAnim.ResetTrigger("Click");
 			gm.playerAnim.ResetTrigger("Idle");

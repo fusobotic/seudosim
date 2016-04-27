@@ -59,6 +59,13 @@ public class Items : MonoBehaviour {
 
 	// Use this for initialization
 
+	public void Start(){
+		//if the level is main mechanic
+		//read equipped item(s) models
+		//and spawn them in the appropriate places
+		//with the right parents
+	}
+
 	public void Equip (int i){
 		Item toEquip = items[i];
 		ItemType curType = toEquip.typeOf;

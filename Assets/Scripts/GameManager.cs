@@ -250,7 +250,7 @@ public class GameManager : MonoBehaviour {
 		GameObject.Find ("Cylinder").GetComponent<CylinderRevolve>().enabled = true;
 		//revolver.SetActive(true);
 		playerModel.SetActive(true);
-		cylinder.transform.parent = GameObject.Find("Hand").transform;
+		cylinder.transform.parent = GameObject.Find("PlayerModel").transform.GetChild(1).GetChild(1).transform;
 
 		//fade in the Revolver object
 
