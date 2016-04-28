@@ -42,7 +42,7 @@ public class Drink : MonoBehaviour {
 			
 			passOutIndex++;
 			//play short animation
-			yield return new WaitForSeconds (gm.playerAnim.GetCurrentAnimatorStateInfo(0).length); //for anim to finish, sub anim length
+			yield return new WaitForSeconds (gm.playerAnim.GetCurrentAnimatorStateInfo(0).length - .1f); //for anim to finish, sub anim length
 			if(passOutIndex == passOutLimit){
 				gm.playerAnim.SetTrigger("PassOut");
 				gm.Lose();

@@ -35,6 +35,8 @@ public class Opponent : MonoBehaviour {
 	public GameObject blood;
 	public GameObject click;
 	public GameObject[] drinks; //just the glass models with modifiable level
+	public GameObject hammer,
+					  cylinder;
 
 	// Use this for initialization
 	void Start () {
@@ -76,19 +78,21 @@ public class Opponent : MonoBehaviour {
 	}
 
 	IEnumerator PullTrigger(){
-		//if(lethalDrink != 0 && Random.value >= (.75 - drinkChanceMod)){
-		if(true){
+		if(lethalDrink != 0 && Random.value >= (.75 - drinkChanceMod)){
 			StartCoroutine(Sip());
 			return true;
 			// has a chance to take a drink anytime he would normally shoot
 		}
 
 		anim.SetTrigger("FullPull");
-		yield return new WaitForSeconds (.01f);
+		iTween.RotateAdd (cylinder, iTween.Hash("y", 60, "time", .1, "islocal", true, "easeType", "easeOutQuart"));
+		iTween.RotateTo(hammer, iTween.Hash("x", 45, "easeType", "easeOutExpo", "islocal", true, "time", .15));
+		yield return new WaitForSeconds (.1f);
+		iTween.RotateTo(hammer, iTween.Hash("x", 0, "easeType", "easeOutExpo", "islocal", true, "time", .01));
 
 		if(cartridge == cylinderIndex){
-			//spawn an explosion as well
 			anim.SetTrigger("Death");
+			yield return new WaitForSeconds (.1f);
 			Instantiate(blood, new Vector3 (45f,3.4f,7.6f), Quaternion.Euler(0,90,0));
 			yield return new WaitForSeconds (anim.GetCurrentAnimatorStateInfo(0).length);
 			//play shooting sound
@@ -98,7 +102,7 @@ public class Opponent : MonoBehaviour {
 		}
 		else{
 			anim.SetTrigger("Click");
-			yield return new WaitForSeconds (.3f);
+			yield return new WaitForSeconds (.1f);
 			Instantiate(click, new Vector3 (38f,3.3f,38f), Quaternion.Euler(18,95,12));
 			yield return new WaitForSeconds (anim.GetCurrentAnimatorStateInfo(0).length - .3f);
 			//play shooting sound
@@ -132,7 +136,7 @@ public class Opponent : MonoBehaviour {
 		yield return new WaitForSeconds (anim.GetCurrentAnimatorStateInfo(0).length); //animation length
 		if (drinkIndex == lethalDrink){
 			anim.SetTrigger("PassOut");
-			yield return new WaitForSeconds (anim.GetCurrentAnimatorStateInfo(0).length);
+			yield return new WaitForSeconds (anim.GetCurrentAnimatorStateInfo(0).length + .75f);
 			gm.Win();
 			//killed opponent anim
 		} else {

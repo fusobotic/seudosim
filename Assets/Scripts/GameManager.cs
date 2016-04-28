@@ -130,7 +130,7 @@ public class GameManager : MonoBehaviour {
 			//player has to shoot
 			break;
 		case "shoot2":
-			iTween.MoveUpdate(camPanner, new Vector3 (0f,-3.1f,21.2f), 1.5f);
+			iTween.MoveUpdate(camPanner, new Vector3 (0f,-3.1f,43.4f), 1.5f);
 			//oppenent has to shoot, restrict player controls
 			break;
 		case "won":
@@ -236,6 +236,7 @@ public class GameManager : MonoBehaviour {
 		Destroy(GameObject.Find("Confirm"), .15f);
 		iTween.MoveAdd(GameObject.Find("Confirm"), iTween.Hash("x", 200, "time", .15));
 		Camera.main.orthographic = false;
+		Camera.main.fieldOfView = 10;
 		iTween.RotateTo(GameObject.Find ("CameraPanner"), iTween.Hash ("y", 90, "time", .15));
 		iTween.MoveTo(GameObject.Find ("CameraPanner"), iTween.Hash ("y", 1.5, "time", .15));
 
