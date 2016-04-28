@@ -30,6 +30,7 @@ public class Opponent : MonoBehaviour {
 	public bool firstShot = true;
 
 	private GameManager gm;
+	private Animator anim;
 
 	public GameObject blood;
 	public GameObject click;
@@ -38,12 +39,8 @@ public class Opponent : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		gm = GameObject.Find("GameManager").GetComponent<GameManager>();
+		anim = GetComponent<Animator>();
 		FillCatriges();
-
-		
-		if(Items.equippedDrink != null){
-			//Instantiate(drinks[Random.Range(0,drinks.Length)], drinkPos, Quaternion.identity);
-		}
 	}
 
 	void Update () {
@@ -67,35 +64,48 @@ public class Opponent : MonoBehaviour {
 		cartridge = Random.Range(1,7);
 
 		//doesn't need its own function
-		if (Items.equippedDrink != null){
-			lethalDrink = Random.Range(drinkMin, drinkMax+1); //drink itself might rewrite this value
-		}
+		lethalDrink = Random.Range(drinkMin, drinkMax+1); //drink itself might rewrite this value
+		//will need to check this depending on whether the player has drink equipped
 
-		if (Random.value >= .5){
+		/*if (Random.value >= .5){
 			hammerBack = true;
 		} else {
 			hammerBack = false;
-		}
-		//hammer back is only aesthetic in this instance
+		}*/
+		//scrapping hammerback feature on opponent since it doesn't affect gameplay
 	}
 
-	void PullTrigger(){
-		if(lethalDrink != 0 && Random.value >= (.75 - drinkChanceMod)){
+	IEnumerator PullTrigger(){
+		//if(lethalDrink != 0 && Random.value >= (.75 - drinkChanceMod)){
+		if(true){
 			StartCoroutine(Sip());
-			gm.curState = "shoot1";
+			return true;
 			// has a chance to take a drink anytime he would normally shoot
 		}
 
-		else if(cartridge == cylinderIndex){
+		anim.SetTrigger("FullPull");
+		yield return new WaitForSeconds (.01f);
+
+		if(cartridge == cylinderIndex){
 			//spawn an explosion as well
+			anim.SetTrigger("Death");
 			Instantiate(blood, new Vector3 (45f,3.4f,7.6f), Quaternion.Euler(0,90,0));
+			yield return new WaitForSeconds (anim.GetCurrentAnimatorStateInfo(0).length);
+			//play shooting sound
+			
 			gm.curState = "shoot1"; //do this so that the camera pans before winning
 			gm.Win();
 		}
 		else{
-			gm.curState = "shoot1";
+			anim.SetTrigger("Click");
+			yield return new WaitForSeconds (.3f);
 			Instantiate(click, new Vector3 (38f,3.3f,38f), Quaternion.Euler(18,95,12));
+			yield return new WaitForSeconds (anim.GetCurrentAnimatorStateInfo(0).length - .3f);
+			//play shooting sound
+			gm.curState = "shoot1";
+			
 			cylinderIndex++;
+			anim.SetTrigger("Idle");
 		}
 		deciding = false;
 	}
@@ -106,23 +116,28 @@ public class Opponent : MonoBehaviour {
 
 			yield return new WaitForSeconds(Random.Range(1f,maxFirstWaitTime));
 			if (gm.curState == "shoot0"){
-				PullTrigger();
+				StartCoroutine(PullTrigger());
 			}
 		}
 		else if (notFirst){
 			yield return new WaitForSeconds(Random.Range(.5f, 2f) + waitTimeMod);
-			PullTrigger();
+			StartCoroutine(PullTrigger());
 		}
 	}
 
 	public IEnumerator Sip(){
+		anim.SetTrigger("Drink");
 		drinkIndex++;
 		//play drink anim
-		yield return new WaitForSeconds(1); //animation length
-		
+		yield return new WaitForSeconds (anim.GetCurrentAnimatorStateInfo(0).length); //animation length
 		if (drinkIndex == lethalDrink){
+			anim.SetTrigger("PassOut");
+			yield return new WaitForSeconds (anim.GetCurrentAnimatorStateInfo(0).length);
 			gm.Win();
 			//killed opponent anim
+		} else {
+			anim.SetTrigger("Idle");
 		}
+		gm.curState = "shoot1";
 	}
 }
