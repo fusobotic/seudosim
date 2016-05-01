@@ -89,7 +89,7 @@ public class CartridgeDrag : MonoBehaviour {
 			gm.playerAnim.ResetTrigger("Click");
 			gm.playerAnim.ResetTrigger("Idle");
 			gm.playerAnim.SetTrigger("Death");
-			gm.Lose(); //calls lose function on GameManger
+			gm.StartCoroutine(gm.Lose()); //calls lose function on GameManger
 		}
 	}
 }

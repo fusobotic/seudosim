@@ -146,14 +146,15 @@ public class GameManager : MonoBehaviour {
 
 	}
 
-	public void Lose() {
+	public IEnumerator Lose() {
 		print("lost");
 		//opponent.anim.SetTrigger("Won");
 		GameObject.Find("Opponent").GetComponent<Opponent>().enabled = false;
 		curState = "lose";
 		currentCoins -= currentBet;
 		roundLosses++;
-		//SceneManager.LoadScene("Death");
+		yield return new WaitForSeconds(playerAnim.GetCurrentAnimatorStateInfo(0).length-2);
+		SceneManager.LoadScene("Death");
 		//turn screen black and then load menu scene
 	}
 
