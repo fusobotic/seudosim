@@ -11,6 +11,9 @@ public class CoinDrag : MonoBehaviour {
 	private Quaternion startRot;
 	private bool rotating = false;
 
+	public GameObject soundClip;
+	public float soundMag;
+
 	// Use this for initialization
 	void Start () {
 		rb = GetComponent<Rigidbody>();
@@ -43,5 +46,11 @@ public class CoinDrag : MonoBehaviour {
 	void OnMouseUp(){
 		//col.enabled = true;
 		if (rb.useGravity) rb.isKinematic = false;
+	}
+
+	void OnCollisionEnter(Collision col){
+		if(col.relativeVelocity.magnitude > soundMag){
+			Instantiate(soundClip,transform.position, Quaternion.identity);
+		}
 	}
 }
