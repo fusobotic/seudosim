@@ -153,7 +153,7 @@ public class GameManager : MonoBehaviour {
 		curState = "lose";
 		currentCoins -= currentBet;
 		roundLosses++;
-		yield return new WaitForSeconds(playerAnim.GetCurrentAnimatorStateInfo(0).length-2);
+		yield return new WaitForSeconds(playerAnim.GetCurrentAnimatorStateInfo(0).length-2.75f);
 		SceneManager.LoadScene("Death");
 		//turn screen black and then load menu scene
 	}

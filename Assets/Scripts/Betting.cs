@@ -59,7 +59,7 @@ public class Betting : MonoBehaviour {
 
 	public IEnumerator SpawnCoins(){
 		//maybe make this more interesting in the future
-		for (int i = 0;i < 50; i++) {
+		for (int i = 0;i < gm.currentCoins; i++) {
 			Vector3 randPos = new Vector3(Random.Range(-randSpread, randSpread),Random.Range(-randSpread, randSpread),i*.3f);
 			Instantiate(coinFab, coinSpawnPoint.position + randPos, coinSpawnPoint.rotation);
 			//coin.AddTorque(100, 100, 100);

@@ -15,7 +15,7 @@ public class SoundClip : MonoBehaviour {
 	void Start () {
 		aS = GetComponent<AudioSource>();
 		if (clips.Length > 1){
-			aS.clip = clips[Random.Range(0,clips.Length+1)];
+			aS.clip = clips[Random.Range(0,clips.Length)];
 		}
 		if(pitchLow != 0 || pitchHigh != 0){
 			aS.pitch = Random.Range(pitchLow, pitchHigh);

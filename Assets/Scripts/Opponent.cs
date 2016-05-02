@@ -36,13 +36,17 @@ public class Opponent : MonoBehaviour {
 	public GameObject click;
 	public GameObject[] drinks; //just the glass models with modifiable level
 	public GameObject hammer,
-					  cylinder;
+					  cylinder,
+					  dryFire,
+					  bang;
+	public Texture[] faces;
 
 	// Use this for initialization
 	void Start () {
 		gm = GameObject.Find("GameManager").GetComponent<GameManager>();
 		anim = GetComponent<Animator>();
 		FillCatriges();
+		transform.Find("CharacterBase").gameObject.GetComponent<Renderer>().material.SetTexture("_MainTex", faces[Random.Range(0,faces.Length)]);
 	}
 
 	void Update () {
@@ -94,6 +98,7 @@ public class Opponent : MonoBehaviour {
 			anim.SetTrigger("Death");
 			yield return new WaitForSeconds (.1f);
 			Instantiate(blood, new Vector3 (45f,3.4f,7.6f), Quaternion.Euler(0,90,0));
+			Instantiate(bang, transform.position, Quaternion.identity);
 			yield return new WaitForSeconds (anim.GetCurrentAnimatorStateInfo(0).length);
 			//play shooting sound
 			
@@ -104,6 +109,7 @@ public class Opponent : MonoBehaviour {
 			anim.SetTrigger("Click");
 			yield return new WaitForSeconds (.1f);
 			Instantiate(click, new Vector3 (38f,3.3f,38f), Quaternion.Euler(18,95,12));
+			Instantiate(dryFire, transform.position, Quaternion.identity);
 			yield return new WaitForSeconds (anim.GetCurrentAnimatorStateInfo(0).length - .3f);
 			//play shooting sound
 			gm.curState = "shoot1";

@@ -14,6 +14,9 @@ public class CartridgeDrag : MonoBehaviour {
 	private Vector3 startRot;
 	private bool chambered = false;
 	private GameManager gm;
+	public GameObject sC,
+					  dryFire,
+					  bang;
 
 	//private GameManager gm; //probably don't need this yet
 
@@ -54,6 +57,7 @@ public class CartridgeDrag : MonoBehaviour {
 			iTween.MoveTo ( gameObject, currentSnap.transform.position, 0);
 			iTween.RotateTo ( gameObject, currentSnap.transform.eulerAngles, 0);
 			iTween.RotateTo (gameObject, new Vector3 (90, 0, 0), 0);
+			Instantiate(sC,transform.position, Quaternion.identity);
 		} else if (!willSnap) {
 			transform.parent = GameObject.Find("Cartridges").transform;
 			iTween.MoveTo ( gameObject, startPos, .5f);
@@ -88,8 +92,13 @@ public class CartridgeDrag : MonoBehaviour {
 			yield return new WaitForSeconds (.01f); //for the hammer to fall
 			gm.playerAnim.ResetTrigger("Click");
 			gm.playerAnim.ResetTrigger("Idle");
+			Instantiate(bang, transform.position, Quaternion.identity);
 			gm.playerAnim.SetTrigger("Death");
 			gm.StartCoroutine(gm.Lose()); //calls lose function on GameManger
+		} else {
+			//for when it wasn't fired
+			yield return new WaitForSeconds(.05f);
+			Instantiate(dryFire, transform.position, Quaternion.identity);
 		}
 	}
 }

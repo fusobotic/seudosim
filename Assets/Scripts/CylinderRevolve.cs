@@ -22,6 +22,7 @@ public class CylinderRevolve : MonoBehaviour {
 	private bool rotated;
 
 	private GameManager gm;
+	public GameObject clickSound;
 
 	void Awake(){
 		gm = GameObject.Find ("GameManager").GetComponent<GameManager> ();
@@ -36,8 +37,10 @@ public class CylinderRevolve : MonoBehaviour {
 	IEnumerator Spin(){
 		rotated = true;
 		rotating = true;
-		iTween.RotateAdd (gameObject, iTween.Hash("z", revolveNum(), "time", spinTime, "easeType", easeType));
-		yield return new WaitForSeconds(spinTime + .25f);
+		int num = revolveNum();
+		StartCoroutine(SpinClicks(num));
+		iTween.RotateAdd (gameObject, iTween.Hash("z", num*60, "time", spinTime, "easeType", "linear")); //formerly easeOutQuart ease
+		yield return new WaitForSeconds(spinTime + .15f);
 		rotating = false;
 		hammer.GetComponent<Collider>().enabled = false; //disables hammer being toggled anymore
 		if (hammer.transform.localEulerAngles.x > 2) {
@@ -58,14 +61,22 @@ public class CylinderRevolve : MonoBehaviour {
 		//maybe also disable collider for the cylinder to prevent any collision/triggers on bullet objects
 	}
 
+	IEnumerator SpinClicks(int num){
+		for(int i=0;i<num;i++){
+			Instantiate(clickSound,transform.position, Quaternion.identity);
+			yield return new WaitForSeconds(spinTime/num);
+		}
+	}
+
 	void Update(){
-		if (rotating) {
-			//trigger sound effects when passing rotations, or just base it on the snap triggers
+		if (transform.localEulerAngles.y % 60 <= 1 && rotating) {
+			//print(transform.localEulerAngles);
+			//Instantiate(clickSound,transform.position, Quaternion.identity);
 		}
 	}
 
 	int revolveNum(){
-		return Random.Range (randMin, randMax) * 60;
+		return Random.Range (randMin, randMax);
 	}
 
 	public void Fire(){
