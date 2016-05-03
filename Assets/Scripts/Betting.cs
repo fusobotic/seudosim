@@ -7,6 +7,8 @@ public class Betting : MonoBehaviour {
 	public bool allIn;
 
 	public int coinCount;
+	//public int coinMax; //only use if coins get too plentiful
+
 	private Text counter;
 
 	public GameObject coinFab;
@@ -38,7 +40,7 @@ public class Betting : MonoBehaviour {
 			betButton.interactable = true;
 		}
 		counter.text = ""+coinCount;
-		//change counter in top left corner of UI accordin to coinCount
+		//change counter in top left corner of UI according to coinCount
 	}
 
 	void OnTriggerEnter(Collider other){

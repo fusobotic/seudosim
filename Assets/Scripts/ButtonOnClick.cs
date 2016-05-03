@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class ButtonOnClick : MonoBehaviour {
 	//script for calling Game Manager since
@@ -13,7 +14,7 @@ public class ButtonOnClick : MonoBehaviour {
 		} else if (gameObject.name == "Confirm"){
 			gm.Load();
 		}else if (gameObject.name == "PlayAgain"){
-			gm.MenuPlay();
+			SceneManager.LoadScene("MainMechanicAnim");
 		} 
 	}
 }

@@ -142,7 +142,9 @@ public class GameManager : MonoBehaviour {
 		//default: //use this if you need a state for when the game first starts
 		}
 		
-		//if (Input.GetButtonDown ("Fire1")) Bet ();
+		if (Input.GetKeyDown(KeyCode.Escape)){
+			SceneManager.LoadScene("MainMenu");
+		}
 
 	}
 
@@ -151,8 +153,8 @@ public class GameManager : MonoBehaviour {
 		//opponent.anim.SetTrigger("Won");
 		GameObject.Find("Opponent").GetComponent<Opponent>().enabled = false;
 		curState = "lose";
-		currentCoins -= currentBet;
 		roundLosses++;
+		currentBet = 0;
 		yield return new WaitForSeconds(playerAnim.GetCurrentAnimatorStateInfo(0).length-2.75f);
 		SceneManager.LoadScene("Death");
 		//turn screen black and then load menu scene
@@ -170,13 +172,7 @@ public class GameManager : MonoBehaviour {
 		//Application.LoadLevel(3); //Load the winstate screen/main menu
 	}
 
-	public void MenuPlay(){
-		SceneManager.LoadScene("MainMechanic");
-	}
-
-	public void MenuQuit(){
-		Application.Quit();
-	}
+	
 
 	void OnApplicationQuit(){
 		//store current values in PlayerPrefs
@@ -185,7 +181,7 @@ public class GameManager : MonoBehaviour {
 	public IEnumerator Bet(){
 
 		GameObject mat = GameObject.Find ("DragMat");
-
+		
 		if (mat.GetComponent<Betting>().allIn) {
 			mat.GetComponent<Betting>().enabled = false;
 			mat.GetComponent<BoxCollider>().enabled = false;
@@ -197,7 +193,7 @@ public class GameManager : MonoBehaviour {
 			mat.GetComponent<BoxCollider>().enabled = false;
 		}
 		
-
+		currentCoins -= currentBet;
 
 		Destroy (GameObject.Find ("StateBet")); //make a more sophsitocated transition later, but for now the testing phase needs to be quick
 		Destroy(GameObject.Find("BetButton"));
@@ -209,7 +205,7 @@ public class GameManager : MonoBehaviour {
 		Physics.gravity = new Vector3(0, -18, 0);
 		print(Time.timeScale);
 		//also move other UI off screen here
-		yield return new WaitForSeconds (1.5f); //wait for coins to drop
+		yield return new WaitForSeconds (2f); //wait for coins to drop
 		
 		GameObject[] coins = GameObject.FindGameObjectsWithTag("Coin");
 		for(int i = 0; i < coins.Length; i++){
