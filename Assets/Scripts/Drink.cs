@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class Drink : MonoBehaviour {
 
@@ -8,6 +9,8 @@ public class Drink : MonoBehaviour {
 
 	private GameManager gm;
 
+	private GameObject drinkButton;
+
 	public int passOutMin,
 			   passOutMax,
 			   passOutLimit,
@@ -15,16 +18,29 @@ public class Drink : MonoBehaviour {
 
 
 	
-	void Start (){
+
+
+	void Awake (){
+		drinkButton = GameObject.Find("DrinkButton");
 		gm = GameObject.Find("GameManager").GetComponent<GameManager>();
 		passOutLimit = Random.Range(passOutMin, passOutMax+1);
+		drinkButton.SetActive(false);
 	}
 
 	void Update(){
 		if(Input.GetKeyDown(KeyCode.E) && (gm.curState == "shoot1" || gm.curState == "shoot0")){
-			StartCoroutine(Sip());
+			//StartCoroutine(Sip());
+			//old sip input
 		}
-		print(passOutIndex + " / " + passOutLimit);
+		print("Drinks: " + passOutIndex + " / " + passOutLimit);
+		if (gm.curState == "shoot1"){
+			drinkButton.SetActive(true);
+			drinkButton.GetComponent<Button>().interactable = true;
+		} else if(gm.curState == "won"){
+			drinkButton.SetActive(false);
+		} else {
+			drinkButton.GetComponent<Button>().interactable = false;
+		}
 	}
 
 	public IEnumerator Sip(){
@@ -57,10 +73,10 @@ public class Drink : MonoBehaviour {
 		}
 	}
 
-	void OnMouseDown(){
-		if(gm.curState == "shoot1" || gm.curState == "shoot0"){
-			Sip();
-		}
+	public void SipButton(){
+		gm = GameObject.Find("GameManager").GetComponent<GameManager>();
+		if (!(gm.curState == "shoot1" || gm.curState == "shoot0")) return;
+		StartCoroutine(Sip());
 	}
 	//other custom functions here
 }

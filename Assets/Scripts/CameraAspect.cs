@@ -46,6 +46,8 @@ public class CameraAspect : MonoBehaviour
 
 			camera.rect = rect;
 		}
+
+		//camera.rect.color = new Color (0,0,0);
 	}
 
 }

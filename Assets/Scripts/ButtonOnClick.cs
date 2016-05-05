@@ -7,6 +7,9 @@ public class ButtonOnClick : MonoBehaviour {
 	//OnClick doesn't research after start
 
 	// Update is called once per frame
+
+	public Drink drinkScript;
+
 	public void Clicked () {
 		GameManager gm = GameObject.Find("GameManager").GetComponent<GameManager>();
 		if(gameObject.name == "BetButton"){
@@ -15,6 +18,8 @@ public class ButtonOnClick : MonoBehaviour {
 			gm.Load();
 		}else if (gameObject.name == "PlayAgain"){
 			SceneManager.LoadScene("MainMechanicAnim");
-		} 
+		} else if (gameObject.name == "DrinkButton"){
+			drinkScript.SipButton();
+		}
 	}
 }

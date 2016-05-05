@@ -60,6 +60,8 @@ public class GameManager : MonoBehaviour {
 		cartConfirm = GameObject.Find("Confirm");
 		playAgain = GameObject.Find("PlayAgain");
 		playerAnim = GameObject.Find("PlayerModel").GetComponent<Animator>();
+		
+
 
 		
 
