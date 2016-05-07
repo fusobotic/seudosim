@@ -39,7 +39,8 @@ public class CartridgeDrag : MonoBehaviour {
 
 		//transform.position = objPosition;
 		iTween.MoveUpdate( gameObject, objPosition, .1f);
-		iTween.RotateUpdate (gameObject, new Vector3 (60,-15,0), .3f);
+		iTween.RotateUpdate (gameObject, new Vector3 (60,20,0), .3f);
+		//iTween.RotateUpdate (gameObject, new Vector3 (90,0,0), .3f);
 	}
 
 	void OnMouseDown(){

@@ -8,6 +8,7 @@ public class CylinderSnaps : MonoBehaviour {
 	public float overlapHeight;
 	private CapsuleCollider coll;
 	private float initHeight;
+	public bool occupied;
 
 
 	void Start(){
@@ -15,15 +16,27 @@ public class CylinderSnaps : MonoBehaviour {
 		initHeight = coll.height;
 	}
 
+	void Update(){
+		if(Input.GetMouseButtonUp(0) && !occupied){
+			coll.height = initHeight;
+		} else if (Input.GetMouseButtonUp(0) && occupied){
+			coll.height = overlapHeight;
+		}
+		if (Input.GetMouseButtonDown(0) && !occupied){
+			coll.height = initHeight;
+		}
+	}
+
 	void OnTriggerStay(Collider other){
 		if (other.tag == "Cartridge" && !Input.GetMouseButton(0)) {
-			coll.height = overlapHeight;
+			occupied = true;
 		}
 	}
 
 	void OnTriggerExit(Collider other){
 		if (other.tag == "Cartridge" && !Input.GetMouseButton(1)) {
-			coll.height = initHeight;
+			occupied = false;
 		}
 	}
+
 }
