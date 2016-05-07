@@ -16,10 +16,12 @@ public class ButtonOnClick : MonoBehaviour {
 			gm.StartCoroutine(gm.Bet());
 		} else if (gameObject.name == "Confirm"){
 			gm.Load();
-		}else if (gameObject.name == "PlayAgain"){
+		} else if (gameObject.name == "PlayAgain"){
 			SceneManager.LoadScene("MainMechanicAnim");
 		} else if (gameObject.name == "DrinkButton"){
 			drinkScript.SipButton();
+		} else if (gameObject.name == "MainMenu"){
+			SceneManager.LoadScene("MainMenu");
 		}
 	}
 }

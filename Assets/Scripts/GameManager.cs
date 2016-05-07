@@ -5,31 +5,37 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
 
-	public int currentBet; //set this value at the beginning of a round
-	public int currentCoins;
-	public int roundLosses; //just a little easter egg counter
+	public int currentBet, //set this value at the beginning of a round
+			   currentCoins,
+			   roundLosses; //just a little easter egg counter
 
 	public int cartridgeCount;
 
 	public string curState;
 
 	public GameObject[] opponents;
+	public GameObject coinModel;
 
 	public static GameManager Instance;
 
 	private GameObject[] revolver;
-	private GameObject playerModel;
-	private GameObject camPanner;
-	private GameObject cartridges;
-	private GameObject cylinder;
-	private GameObject cylinderModel;
-	private GameObject cartConfirm;
-	private GameObject playAgain;
 
-	private Vector3 cartridgesLoc;
-	private Vector3 cylinderLoc;
+	private GameObject playerModel,
+					   camPanner,
+					   cartridges,
+					   cylinder,
+					   cylinderModel,
+					   cartConfirm,
+					   wonUI;
+
+	private Text winNumText;
+
+	private Vector3 cartridgesLoc,
+					cylinderLoc;
 
 	public Animator playerAnim;
+
+	public float winCoinDelay;
 
 	void Awake(){
 		if (Instance)
@@ -58,7 +64,8 @@ public class GameManager : MonoBehaviour {
 		cylinder = GameObject.Find("Cylinder");
 		cylinderModel = GameObject.Find("CylinderModel");
 		cartConfirm = GameObject.Find("Confirm");
-		playAgain = GameObject.Find("PlayAgain");
+		wonUI = GameObject.Find("WonUI");
+		winNumText = GameObject.Find("WinNum").GetComponent<Text>();
 		playerAnim = GameObject.Find("PlayerModel").GetComponent<Animator>();
 		
 
@@ -69,7 +76,7 @@ public class GameManager : MonoBehaviour {
 			Instantiate(opponents[Random.Range(0,opponents.Length+1)], new Vector3(37.9f, -15.3f, 24.9f), Quaternion.identity);
 		}*/
 		
-		playAgain.SetActive(false);
+		wonUI.SetActive(false);
 		cartConfirm.SetActive(false);
 		//revolver.SetActive(false);
 
@@ -155,23 +162,37 @@ public class GameManager : MonoBehaviour {
 		//opponent.anim.SetTrigger("Won");
 		GameObject.Find("Opponent").GetComponent<Opponent>().enabled = false;
 		curState = "lose";
-		roundLosses++;
+		roundLosses++; //use this later sometime? Remember to put it in a save file eventually
 		currentBet = 0;
 		yield return new WaitForSeconds(playerAnim.GetCurrentAnimatorStateInfo(0).length-2.75f);
 		SceneManager.LoadScene("Death");
-		//turn screen black and then load menu scene
 	}
 
 	public void Win(){
+		GameObject.Find("DrinkButton").SetActive(false);
 		curState = "won";
 		GameObject.Find("TriggerRot").GetComponent<Collider>().enabled = false;
+		wonUI.SetActive(true);
+		winNumText.text = "$: " + currentCoins;
+		StartCoroutine(CoinDrop(currentCoins, currentBet*2));
 		currentCoins += (currentBet * 2);
 		currentBet = 0;
 		print(currentCoins);
-		playAgain.SetActive(true);
-		//print("yeah you won!");
-		//spawn winning animation prefab or something
-		//Application.LoadLevel(3); //Load the winstate screen/main menu
+	}
+
+	IEnumerator CoinDrop(int cur, int wonNum){
+		Transform spawner = GameObject.Find("HeadSpawner").transform;
+		for(int i = 0; i < wonNum; i++){
+			yield return new WaitForSeconds(winCoinDelay);
+			winNumText.text = "$" + (cur+i);
+			Quaternion randRot = Quaternion.identity;
+			randRot.eulerAngles = new Vector3(Random.Range(0f,360f),Random.Range(0f,360f),Random.Range(0f,360f));
+			Vector3 randPos = new Vector3(Random.Range(0f,.03f), 0, Random.Range(0f,.03f));
+			GameObject coin = Instantiate(coinModel, (spawner.position + randPos), randRot) as GameObject;
+			coin.transform.localScale *= 3;
+			coin.GetComponent<Rigidbody>().mass = 3;
+			//spawn coins at a spawn point here
+		}
 	}
 
 	
@@ -188,7 +209,7 @@ public class GameManager : MonoBehaviour {
 			mat.GetComponent<Betting>().enabled = false;
 			mat.GetComponent<BoxCollider>().enabled = false;
 			iTween.MoveTo (mat, iTween.Hash ("x", 6.46f, "y", 6.12f, "easeType", "easeInOutExpo", "time", .5));
-			currentCoins = currentBet;
+			currentBet = currentCoins;
 		} else {
 			currentBet = mat.GetComponent<Betting> ().coinCount;
 			mat.GetComponent<Betting>().enabled = false;
