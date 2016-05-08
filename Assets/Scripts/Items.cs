@@ -11,10 +11,13 @@ public class Items : MonoBehaviour {
 	public class Item {
 		public string name;
 		public GameObject model;
+		public float modelScale = 1;
 		public bool bought;
-		//public bool equipped = false;
+		public bool equipped = false;
 		public int price;
-		public string callName; //when equipped execute this
+		public string callName, //when equipped execute this
+					  description;
+
 		public ItemType typeOf;
 
 		public void Buy(){
@@ -56,7 +59,7 @@ public class Items : MonoBehaviour {
 	public Item[] items;
 	public Ammo[] ammos;
 
-	 
+	public int shopSpot; //used to keep track of where you were in the shop
 
 	// Use this for initialization
 
@@ -68,6 +71,7 @@ public class Items : MonoBehaviour {
 	}
 
 	public void Equip (int i){
+		items[i].equipped = true;
 		Item toEquip = items[i];
 		ItemType curType = toEquip.typeOf;
 
@@ -103,6 +107,25 @@ public class Items : MonoBehaviour {
 
 	void Update(){
 
+	}
+
+	public void Unequip(int i){
+		items[i].equipped = false;
+		Item toEquip = items[i];
+		ItemType curType = toEquip.typeOf;
+
+		if (curType == ItemType.Drink){
+			equippedDrink = null;
+		}
+		else if (curType == ItemType.Hat){
+			equippedHat = null;
+		}
+		else if (curType == ItemType.Charm){
+			equippedCharm = null;
+		}
+		else if (curType == ItemType.Anim){
+			equippedAnim = null;
+		}
 	}
 	
 }
