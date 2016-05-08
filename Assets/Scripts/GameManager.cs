@@ -172,6 +172,7 @@ public class GameManager : MonoBehaviour {
 		roundLosses++; //use this later sometime? Remember to put it in a save file eventually
 		currentBet = 0;
 		yield return new WaitForSeconds(playerAnim.GetCurrentAnimatorStateInfo(0).length-2.75f);
+		if(currentCoins == 0) Application.Quit();
 		SceneManager.LoadScene("Death");
 	}
 
