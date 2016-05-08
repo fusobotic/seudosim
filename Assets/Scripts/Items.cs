@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 
 public class Items : MonoBehaviour {
@@ -59,11 +60,11 @@ public class Items : MonoBehaviour {
 
 	// Use this for initialization
 
-	public void Start(){
+	public void Awake(){
 		//if the level is main mechanic
 		//read equipped item(s) models
 		//and spawn them in the appropriate places
-		//with the right parents
+		//with the right parents (might be bones)
 	}
 
 	public void Equip (int i){

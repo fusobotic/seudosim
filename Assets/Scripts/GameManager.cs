@@ -49,7 +49,9 @@ public class GameManager : MonoBehaviour {
 	}
 
 	void Start () {
-		RoundStart();
+		if(SceneManager.GetActiveScene().name == "MainMechanicAnim"){
+			RoundStart();
+		}
 	}
 
 	void RoundStart(){
@@ -68,8 +70,13 @@ public class GameManager : MonoBehaviour {
 		winNumText = GameObject.Find("WinNum").GetComponent<Text>();
 		playerAnim = GameObject.Find("PlayerModel").GetComponent<Animator>();
 		
-
-
+		if(Items.equippedDrink == null){
+			GameObject[] drinkBones = GameObject.FindGameObjectsWithTag("DrinkBone");
+			foreach (GameObject target in drinkBones) {
+		        Destroy(target);
+		    }
+		}
+		//spawn hat, charms or bullets here
 		
 
 		/*if(opponents.Length != 0){
@@ -169,11 +176,11 @@ public class GameManager : MonoBehaviour {
 	}
 
 	public void Win(){
-		GameObject.Find("DrinkButton").SetActive(false);
+		if(GameObject.Find("DrinkButton"))GameObject.Find("DrinkButton").SetActive(false);
 		curState = "won";
 		GameObject.Find("TriggerRot").GetComponent<Collider>().enabled = false;
 		wonUI.SetActive(true);
-		winNumText.text = "$: " + currentCoins;
+		winNumText.text = "$" + currentCoins;
 		StartCoroutine(CoinDrop(currentCoins, currentBet*2));
 		currentCoins += (currentBet * 2);
 		currentBet = 0;
@@ -218,7 +225,7 @@ public class GameManager : MonoBehaviour {
 		
 		currentCoins -= currentBet;
 
-		Destroy (GameObject.Find ("StateBet")); //make a more sophsitocated transition later, but for now the testing phase needs to be quick
+		Destroy(GameObject.Find ("StateBet")); //make a more sophsitocated transition later, but for now the testing phase needs to be quick
 		Destroy(GameObject.Find("BetButton"));
 		Destroy(GameObject.Find("CoinNum"));
 		Destroy(GameObject.Find("AllIn"));

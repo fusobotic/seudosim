@@ -70,7 +70,10 @@ public class Opponent : MonoBehaviour {
 		cartridge = Random.Range(1,7);
 
 		//doesn't need its own function
-		lethalDrink = Random.Range(drinkMin, drinkMax+1); //drink itself might rewrite this value
+		if(Items.equippedDrink != null){
+			lethalDrink = Random.Range(drinkMin, drinkMax+1);
+		}
+		 //drink itself might rewrite this value
 		//will need to check this depending on whether the player has drink equipped
 
 		/*if (Random.value >= .5){

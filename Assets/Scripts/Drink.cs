@@ -21,6 +21,10 @@ public class Drink : MonoBehaviour {
 
 
 	void Awake (){
+		if(Items.equippedDrink == null){
+			Destroy(GameObject.Find("DrinkButton"));
+			return;
+		}
 		drinkButton = GameObject.Find("DrinkButton");
 		gm = GameObject.Find("GameManager").GetComponent<GameManager>();
 		passOutLimit = Random.Range(passOutMin, passOutMax+1);
@@ -28,10 +32,6 @@ public class Drink : MonoBehaviour {
 	}
 
 	void Update(){
-		if(Input.GetKeyDown(KeyCode.E) && (gm.curState == "shoot1" || gm.curState == "shoot0")){
-			//StartCoroutine(Sip());
-			//old sip input
-		}
 		print("Drinks: " + passOutIndex + " / " + passOutLimit);
 		if (gm.curState == "shoot1"){
 			drinkButton.SetActive(true);
