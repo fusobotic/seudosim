@@ -12,6 +12,7 @@ public class Spinable : MonoBehaviour {
 	private float baseAngle = 0.0f;
 	private bool dragging = false;
 	private float curRot;
+	public float bounceTime = 1f;
 
 	void Start(){
 
@@ -56,7 +57,7 @@ public class Spinable : MonoBehaviour {
 		} else if (curRot <= 360) {
 			closest = 360;
 		}
-		if (snapping) iTween.RotateTo (gameObject, iTween.Hash ("z", closest, "easeType", "easeOutBounce"));
+		if (snapping) iTween.RotateTo (gameObject, iTween.Hash ("z", closest, "easeType", "easeOutBounce", "time", bounceTime));
 	}
 
 	void Update(){

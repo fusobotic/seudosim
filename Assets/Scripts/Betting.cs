@@ -62,7 +62,8 @@ public class Betting : MonoBehaviour {
 	public IEnumerator SpawnCoins(){
 		//maybe make this more interesting in the future
 		for (int i = 0;i < gm.currentCoins; i++) {
-			Vector3 randPos = new Vector3(Random.Range(-randSpread, randSpread),Random.Range(-randSpread, randSpread),i*.3f);
+			print("spawned");
+			Vector3 randPos = new Vector3(Random.Range(-randSpread, randSpread),Random.Range(-randSpread, randSpread),0);
 			Quaternion randRot = Quaternion.identity;
 			randRot.eulerAngles = new Vector3(Random.Range(0f,360f),Random.Range(0f,360f),Random.Range(0f,360f));
 			Instantiate(coinFab, coinSpawnPoint.position + randPos, randRot);

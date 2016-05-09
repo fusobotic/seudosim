@@ -14,9 +14,13 @@ public class CartridgeDrag : MonoBehaviour {
 	private Vector3 startRot;
 	private bool chambered = false;
 	private GameManager gm;
+	private Renderer rend;
+	public Color blankColor;
 	public GameObject sC,
 					  dryFire,
-					  bang;
+					  bang,
+					  mesh;
+	public bool isABlank;
 
 	//private GameManager gm; //probably don't need this yet
 
@@ -26,11 +30,16 @@ public class CartridgeDrag : MonoBehaviour {
 		//startPos = transform.position;
 		startRot = transform.eulerAngles;
 		gm = GameObject.Find("GameManager").GetComponent<GameManager>();
+		rend = mesh.GetComponent<Renderer>();
+		if(isABlank){
+			rend.materials[0].SetColor("_Color", blankColor);
+		}
 		//gm = GameObject.Find("GameManager").GetComponent<GameManager>();
 	}
 
 	void Update () {
 		//print(startPos);
+
 	}
 
 	void OnMouseDrag(){
@@ -87,7 +96,7 @@ public class CartridgeDrag : MonoBehaviour {
 	}
 
 	public IEnumerator Fired(){
-		if (chambered){
+		if (chambered && !isABlank){
 			GameObject.Find("Opponent").GetComponent<Opponent>().StopAllCoroutines();
 			GameObject.Find("Opponent").GetComponent<Opponent>().enabled = false;
 			yield return new WaitForSeconds (.01f); //for the hammer to fall
@@ -96,6 +105,11 @@ public class CartridgeDrag : MonoBehaviour {
 			Instantiate(bang, transform.position, Quaternion.identity);
 			gm.playerAnim.SetTrigger("Death");
 			gm.StartCoroutine(gm.Lose()); //calls lose function on GameManger
+		} else if (chambered && isABlank){
+			//firing a blank
+			yield return new WaitForSeconds(.05f);
+			Instantiate(bang, transform.position, Quaternion.identity);
+			Items.equippedAnim = null;
 		} else {
 			//for when it wasn't fired
 			yield return new WaitForSeconds(.05f);

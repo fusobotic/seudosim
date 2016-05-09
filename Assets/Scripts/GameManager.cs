@@ -185,7 +185,6 @@ public class GameManager : MonoBehaviour {
 		StartCoroutine(CoinDrop(currentCoins, currentBet*2));
 		currentCoins += (currentBet * 2);
 		currentBet = 0;
-		print(currentCoins);
 	}
 
 	IEnumerator CoinDrop(int cur, int wonNum){

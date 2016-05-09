@@ -68,6 +68,18 @@ public class Items : MonoBehaviour {
 		//read equipped item(s) models
 		//and spawn them in the appropriate places
 		//with the right parents (might be bones)
+		if(SceneManager.GetActiveScene().name == "MainMechanicAnim"){
+			if(equippedHat == null){
+				Destroy(GameObject.Find("Hat"));
+			} else {
+				//switch out hat mesh for whichever model is equipped
+			}
+			if(equippedAnim != null){
+				//set a blank
+				GameObject.Find("Cartridge").GetComponent<CartridgeDrag>().isABlank = true;
+			}
+		}
+		
 	}
 
 	public void Equip (int i){

@@ -61,6 +61,7 @@ public class Drink : MonoBehaviour {
 			yield return new WaitForSeconds (gm.playerAnim.GetCurrentAnimatorStateInfo(0).length - .1f); //for anim to finish, sub anim length
 			if(passOutIndex == passOutLimit){
 				gm.playerAnim.SetTrigger("PassOut");
+				yield return new WaitForSeconds (gm.playerAnim.GetCurrentAnimatorStateInfo(0).length);
 				gm.StartCoroutine(gm.Lose());
 				//maybe play drink death animation?
 			} else {
