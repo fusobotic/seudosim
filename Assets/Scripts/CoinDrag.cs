@@ -9,7 +9,8 @@ public class CoinDrag : MonoBehaviour {
 	private Rigidbody rb;
 	private Collider col;
 	private Quaternion startRot;
-	private bool rotating = false;
+	private bool rotating = false,
+				 betted = false;
 
 	public GameObject soundClip;
 	public float soundMag;
@@ -24,6 +25,13 @@ public class CoinDrag : MonoBehaviour {
 	void Update () {
 		if (rb.isKinematic){
 			iTween.RotateBy (gameObject, iTween.Hash ("z", spinSpeed, "x", -spinSpeed, "y", spinSpeed * .5, "delay", 0, "easeType", "Linear"));
+		}
+	}
+
+	void FixedUpdate(){
+		if(Physics.gravity == new Vector3(0, -18, 0) && betted){
+			//rb.useGravity = false;
+			rb.AddForce(0,5,0);
 		}
 	}
 
@@ -51,6 +59,18 @@ public class CoinDrag : MonoBehaviour {
 	void OnCollisionEnter(Collision col){
 		if(col.relativeVelocity.magnitude > soundMag){
 			Instantiate(soundClip,transform.position, Quaternion.identity);
+		}
+	}
+
+	void OnTriggerEnter(Collider other){
+		if(other.name == "DragMat"){
+			betted = true;
+		}
+	}
+
+	void OnTriggerExit(Collider other){
+		if(other.name == "DragMat"){
+			betted = false;
 		}
 	}
 }
